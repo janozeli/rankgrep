@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-28",
+  "model": "claude-sonnet-5-5",
+  "claude_code": "2.1.312",
+  "plugin_commit": "e6d66dd40b905b1fc5dec164e406d9c9f36023d4",
+  "corpora": {
+    "docs": {
+      "url": "https://code.claude.com/docs/llms-full.txt",
+      "sha256": "e7006d8e0ab98d3f6ba528f8fc8b51d8bb4de2b798f2030f1be8be4fb69abad5"
+    },
+    "book": {
+      "url": "https://www.gutenberg.org/cache/epub/135/pg135.txt",
+      "sha256": "6cf3b9d6fc5e6f733737425267d3af296d7f99f9b9fd1d255a3ab7689a6346ab"
+    }
+  }
+}

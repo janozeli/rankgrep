@@ -1,0 +1,150 @@
+{"id": "book-01", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "The reply gives an unverified recollection of about two bushels and about thirty sous. It is hedged, and it says it could not check the file. The citation points to no line (unknown), so cited_ok is false. Because it says it could not verify, it is graded incorrect."}
+{"id": "book-01", "arm": "rg", "correct": true, "cited_ok": true, "reason": "States two bushels and thirty sous, matching the reference. The cited passage contains the exchange."}
+{"id": "book-01", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "States two bushels and thirty sous, matching the reference. The cited passage contains the exchange."}
+{"id": "book-02", "arm": "closed-book", "correct": true, "cited_ok": false, "reason": "States fifteen hundred francs, which matches. The citation points to 'unknown', so it points nowhere in the text."}
+{"id": "book-02", "arm": "rg", "correct": true, "cited_ok": true, "reason": "Answer is fifteen hundred francs. The cited passage contains 'I have just given you fifteen hundred francs.'"}
+{"id": "book-02", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "Answer is fifteen hundred francs. The cited passage contains the statement."}
+{"id": "book-03", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Says it cannot confirm who accompanies him, and does not name the child. The citation points to no line of the text."}
+{"id": "book-03", "arm": "rg", "correct": true, "cited_ok": true, "reason": "States mule-back and a child guide as the only companion; matches the reference. The cited passage contains these facts."}
+{"id": "book-03", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "States mule-back and a child guide as the only companion; matches the reference. The cited passage contains these facts."}
+{"id": "book-04", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Says it could not verify, and gives a vague 'door or gate' rather than a trap-door of rotten planks. The citation points to no line of the text."}
+{"id": "book-04", "arm": "rg", "correct": true, "cited_ok": true, "reason": "Matches the reference: raising mushrooms, closed by a trap-door of rotten planks at ground level; citation contains it."}
+{"id": "book-04", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "States mushrooms only and trap-door of rotten planks at ground level; the cited passage contains this."}
+{"id": "book-05", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Says it cannot answer and does not state the fact; citation points to no line of the text."}
+{"id": "book-05", "arm": "rg", "correct": true, "cited_ok": true, "reason": "States white envelope, no address, no seal, notebook of numbered pages in fine handwriting; cited passage contains these facts."}
+{"id": "book-05", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "Matches the reference: unaddressed, unsealed white envelope with numbered notebook in fine handwriting; cited lines state this."}
+{"id": "book-06", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Says a low savage growl from memory, unverified; contradicts the passage (a roar, run together as 'Bequiabouit')."}
+{"id": "book-06", "arm": "rg", "correct": true, "cited_ok": true, "reason": "Gives 'Bequiabouit' as the run-together pronunciation with a fierce, frenzied tone, which matches the passage."}
+{"id": "book-06", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "States he roars it as the single run-together word 'Bequiabouit', matching the reference."}
+{"id": "book-07", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Says it could not verify the answer; gives no answer. Citation is unknown and points nowhere."}
+{"id": "book-07", "arm": "rg", "correct": true, "cited_ok": true, "reason": "States the Utrecht velvet easy-chair and 'Stretch out your arms to him', matching the reference. The cited passage contains this."}
+{"id": "book-07", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "States the Utrecht velvet easy-chair and 'Stretch out your arms to him', matching the reference. The cited passage contains this."}
+{"id": "book-08", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Says he ran to the elephant at the Bastille, which is not what the passage says (he ran in the direction of the Bastille). It also gives an unverified answer from memory and adds the claim that Gavroche was Thénardier's son, which the passage doesn't contradict. It does name Gavroche and the Bastille area, but the answer is framed as unverified and as the elephant, so it is incorrect."}
+{"id": "book-08", "arm": "rg", "correct": true, "cited_ok": true, "reason": "States he ran toward the Bastille and returned with Gavroche, matching the reference."}
+{"id": "book-08", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "States he ran toward the Bastille and returned with Gavroche, matching the reference."}
+{"id": "book-09", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Says Marius feared the answers but frames it around gratitude and Valjean's standing, not the risk of tainting Cosette. The passage doesn't support the gratitude claim."}
+{"id": "book-09", "arm": "rg", "correct": true, "cited_ok": true, "reason": "Says he feared the answers and where the revelations would lead, as the passage states. It omits the Cosette worry but gives the core reason."}
+{"id": "book-09", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "Says he feared the answers and that the glare of the revelations might reach Cosette, which matches the reference."}
+{"id": "book-10", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Gives no definite duration and says it could not verify; the citation points nowhere."}
+{"id": "book-10", "arm": "rg", "correct": true, "cited_ok": true, "reason": "Twelve hours, the whole winter night, motionless and silent; the cited passage supports it."}
+{"id": "book-10", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "States twelve hours, long winter night, no raising head or speaking; the cited passage says this."}
+{"id": "book-11", "arm": "closed-book", "correct": true, "cited_ok": false, "reason": "States luminous and impenetrable, matching the reference. The citation is 'unknown' and points to no line, so it isn't valid."}
+{"id": "book-11", "arm": "rg", "correct": true, "cited_ok": true, "reason": "Gives luminous and impenetrable. The cited passage contains the star sentence."}
+{"id": "book-11", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "Gives luminous and impenetrable. The cited passage contains the star sentence."}
+{"id": "book-12", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Answers about a year, not ten months, and admits it is unverified."}
+{"id": "book-12", "arm": "rg", "correct": true, "cited_ok": true, "reason": "States ten months, matching the passage."}
+{"id": "book-12", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "States ten months, matching the passage."}
+{"id": "book-13", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Gives 1500 francs, which contradicts the passage's five hundred. The citation is a placeholder that points to no line."}
+{"id": "book-13", "arm": "rg", "correct": true, "cited_ok": true, "reason": "States 500 francs, which matches. The cited lines contain the answer."}
+{"id": "book-13", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "States 500 francs, which matches. The extra detail doesn't contradict the passage. The cited lines contain 'Five hundred francs'."}
+{"id": "book-14", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Gives the wrong address (Rue Clocheperce, No. 8); the citation points to no line."}
+{"id": "book-14", "arm": "rg", "correct": true, "cited_ok": true, "reason": "Gives the correct address; the cited passage contains it."}
+{"id": "book-14", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "Gives the correct address; the cited passage contains it."}
+{"id": "book-15", "arm": "closed-book", "correct": true, "cited_ok": false, "reason": "States Père-Lachaise and a yew tree, matching the reference. The remark about answering from memory doesn't change the answer."}
+{"id": "book-15", "arm": "rg", "correct": true, "cited_ok": true, "reason": "Père-Lachaise, under a great yew tree; matches."}
+{"id": "book-15", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "Père-Lachaise, great yew tree, old wall; matches the passage."}
+{"id": "book-16", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Gives 5, 6, 8, which drops the ½ and is wrong. It is also unverified, and the citation points to no line."}
+{"id": "book-16", "arm": "rg", "correct": true, "cited_ok": true, "reason": "States 5, 6, 8½, matching the reference. The added claim that the figures total 19.5 and round to twenty is extra detail the passage doesn't contradict. The cited lines contain the figures."}
+{"id": "book-16", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "Gives 5, 6 and 8½, which is correct, and the cited passage states them."}
+{"id": "book-17", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "It says it does not know the answer, and its citation points to no line."}
+{"id": "book-17", "arm": "rg", "correct": true, "cited_ok": true, "reason": "Answer matches the reference, and the cited passage contains the quote."}
+{"id": "book-17", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "Answer matches the reference, and the cited passage contains the quote."}
+{"id": "book-18", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Says the life would collapse and he'd return to the galleys; omits the passage's 'vanish' and 'new soul' fact, and the citation is unknown and points nowhere."}
+{"id": "book-18", "arm": "rg", "correct": true, "cited_ok": true, "reason": "States the new life would vanish and perhaps his new soul too; the cited passage lines contain this."}
+{"id": "book-18", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "Matches the reference: new life vanishes, perhaps the new soul as well; the cited lines state it."}
+{"id": "book-19", "arm": "closed-book", "correct": true, "cited_ok": false, "reason": "Answer states a heap of empty bottles, matching the reference. The citation is unknown and points to no line of the text."}
+{"id": "book-19", "arm": "rg", "correct": true, "cited_ok": true, "reason": "Correct answer. The cited passage states the heap of empty bottles piled in one corner."}
+{"id": "book-19", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "Correct answer. The cited passage states the heap of empty bottles piled in one corner."}
+{"id": "book-20", "arm": "closed-book", "correct": true, "cited_ok": false, "reason": "Says the netting is on account of the rats, which matches the reference. The citation is 'unknown', so it points to no line."}
+{"id": "book-20", "arm": "rg", "correct": true, "cited_ok": true, "reason": "Says the netting is for the rats. The extra detail is not contradicted by the passage. The cited lines contain the quote."}
+{"id": "book-20", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "Says the netting is for the rats. The Jardin des Plantes detail isn't in the passage, but the passage doesn't contradict it. The cited lines contain the quote."}
+{"id": "book-21", "arm": "closed-book", "correct": true, "cited_ok": false, "reason": "States yellow cabriolet and black box, matching the reference; citation is unknown and points nowhere."}
+{"id": "book-21", "arm": "rg", "correct": true, "cited_ok": true, "reason": "Correct answer; the cited range includes the sentence stating the coffer was black and the cabriolet yellow."}
+{"id": "book-21", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "Correct answer; the cited range includes the sentence 'This coffer was painted black, and the cabriolet yellow.'"}
+{"id": "book-22", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Says 'iron lever' (close to iron bar) but adds a contradictory claim that it's the convent's own ground rather than the cemetery, and says 'paving stone'; mainly, the citation points to no line, so cited_ok is false. Answer is essentially right on vault under altar and iron lever, but the ring is omitted; graded incorrect for the unsupported/contradicting details."}
+{"id": "book-22", "arm": "rg", "correct": true, "cited_ok": true, "reason": "Correct; the extra detail about her own coffin is supported by the passage (the 'twenty years' detail is unverified but harmless). Citation contains the fact."}
+{"id": "book-22", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "Vault under chapel altar; iron bar and ring. Matches. Cited passage states it."}
+{"id": "book-23", "arm": "closed-book", "correct": true, "cited_ok": false, "reason": "Answers Turgot, which is correct. The citation points to no line ('unknown'), so cited_ok is false."}
+{"id": "book-23", "arm": "rg", "correct": true, "cited_ok": true, "reason": "Answers Turgot; the cited passage states 'the physiocrates, Turgot at their head'."}
+{"id": "book-23", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "Answers Turgot, and the extra list of legions matches the passage. The citation contains the fact."}
+{"id": "book-24", "arm": "closed-book", "correct": true, "cited_ok": false, "reason": "Answer matches: continues serving until replaced. Citation points to no line (unverified, 'unknown')."}
+{"id": "book-24", "arm": "rg", "correct": true, "cited_ok": true, "reason": "Matches reference; cited passage includes the quote."}
+{"id": "book-24", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "States he will continue to serve until superseded; cited passage contains that line."}
+{"id": "book-25", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Answers eight o'clock, which contradicts the passage; the citation points to no line."}
+{"id": "book-25", "arm": "rg", "correct": true, "cited_ok": true, "reason": "Answers twelve/midday; the cited passage contains Combeferre's 'It is midday' and the twelve strokes."}
+{"id": "book-25", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "Answers midday/twelve; the cited passage states 'It is midday' and the twelve strokes."}
+{"id": "docs-01", "arm": "closed-book", "correct": true, "cited_ok": false, "reason": "States each session keeps its own independent context, matching the reference. The citation is unverified and points to no line, so it is not valid."}
+{"id": "docs-01", "arm": "rg", "correct": true, "cited_ok": true, "reason": "Says each session is an independent conversation with its own context and changes. The cited lines state this."}
+{"id": "docs-01", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "Matches the reference and passage. The cited lines contain the fact."}
+{"id": "docs-02", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Gives 60 seconds and the wrong or unknown variable; the citation points nowhere."}
+{"id": "docs-02", "arm": "rg", "correct": true, "cited_ok": true, "reason": "States 300 seconds and CLAUDE_CODE_WEBFETCH_DEADLINE_MS with 0 disabling; cited line 6333 states this exactly."}
+{"id": "docs-02", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "Five minutes equals 300 seconds; correct variable and 0 removes limit. The cited lines state five minutes and the variable override."}
+{"id": "docs-03", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Says it does not know the answer; citation points nowhere."}
+{"id": "docs-03", "arm": "rg", "correct": true, "cited_ok": true, "reason": "States the cap that resets last; cited lines contain this sentence."}
+{"id": "docs-03", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "States the cap that resets last; cited lines contain this sentence."}
+{"id": "docs-04", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Gives an unverified guess that differs from the reference; the citation points nowhere."}
+{"id": "docs-04", "arm": "rg", "correct": true, "cited_ok": true, "reason": "States all three correctly; the cited lines contain the statement."}
+{"id": "docs-04", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "Lists all three: Bash/Bash(*) allow rule, sandbox auto-allow, PreToolUse allow hook. Cited lines include the statement."}
+{"id": "docs-05", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Gives default 1 from GitHub Actions, which contradicts the passage's 50. The citation points nowhere."}
+{"id": "docs-05", "arm": "rg", "correct": true, "cited_ok": true, "reason": "States default 50 and `full` or `0`; matches the passage. Saying '50 commits' is consistent with fetch depth."}
+{"id": "docs-05", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "Default 50, `full` or `0` for a complete fetch; matches the passage and the cited lines contain it."}
+{"id": "docs-06", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Says it does not know the answer; citation points nowhere."}
+{"id": "docs-06", "arm": "rg", "correct": true, "cited_ok": true, "reason": "States three runs by default; the extra baseline detail (three more runs) is consistent with the passage. Citation covers it."}
+{"id": "docs-06", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "States three runs by default, matching the passage; the cited lines state it."}
+{"id": "docs-07", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Hedges on EROFS ('may also', 'possibly'), says it is from memory and unverified, and the citation points nowhere (line unknown)."}
+{"id": "docs-07", "arm": "rg", "correct": true, "cited_ok": true, "reason": "Correct codes and fix; extra detail on ENOSPC and EDQUOT matches the passage. Citation covers the fact."}
+{"id": "docs-07", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "States EACCES, EPERM, EROFS and restoring write access; the cited passage contains this."}
+{"id": "docs-08", "arm": "closed-book", "correct": true, "cited_ok": false, "reason": "Says least-privilege policy for Bedrock invoke actions; matches reference. Citation is a placeholder that points nowhere."}
+{"id": "docs-08", "arm": "rg", "correct": false, "cited_ok": false, "reason": "Cites the GitHub Actions section (GitHub OIDC), not GitLab. The answer never says least-privilege and adds actions from the GitHub passage; the cited lines don't concern GitLab CI."}
+{"id": "docs-08", "arm": "rankgrep", "correct": false, "cited_ok": false, "reason": "Says only 'Bedrock permissions' and omits least-privilege/invoke APIs; the reply is vague about the key fact. The cited prerequisites lines say 'Amazon Bedrock permissions' without least-privilege invoke."}
+{"id": "docs-09", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Says it could not verify and gives only an unverified guess; it states it couldn't find the answer."}
+{"id": "docs-09", "arm": "rg", "correct": true, "cited_ok": true, "reason": "Matches the reference and passage exactly."}
+{"id": "docs-09", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "States that consecutive duplicates leave one entry, which matches the reference. It doesn't mention that Up goes to the previous distinct prompt, but that follows from the single entry."}
+{"id": "docs-10", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Gives a general reasoning answer that misses the key point that a block doesn't prove where a machine is, though it does note outsiders could pass. Also the citation is a placeholder pointing nowhere."}
+{"id": "docs-10", "arm": "rg", "correct": true, "cited_ok": true, "reason": "States block doesn't prove location and shared block lets anyone in it pass. Extra detail about pushed settings is plausible, not contradicting. Citation contains the fact."}
+{"id": "docs-10", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "Matches the reference answer and the cited lines state it."}
+{"id": "docs-11", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Says it cannot determine the answer; citation points nowhere."}
+{"id": "docs-11", "arm": "rg", "correct": true, "cited_ok": true, "reason": "Names the hook that doesn't fire and the MCP server that doesn't start; the cited lines state both."}
+{"id": "docs-11", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "Names the hook that doesn't fire and the MCP server that doesn't start; the cited lines state both."}
+{"id": "docs-12", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "The reply gives only the general idea that unlisted paths aren't checked out. It omits the root-level files versus directories distinction, which is the key point. Its citation points to no line."}
+{"id": "docs-12", "arm": "rg", "correct": true, "cited_ok": true, "reason": "Says root-level directories like .claude are not checked out unless listed, and notes root-level files are included. Matches the reference. Cited passage states it."}
+{"id": "docs-12", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "States root-level files are always checked out but root-level directories are not, so .claude must be listed. Cited passage contains this fact."}
+{"id": "docs-13", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Says it doesn't know the answer; citation points nowhere."}
+{"id": "docs-13", "arm": "rg", "correct": true, "cited_ok": true, "reason": "States $.ui.resolve(e) with destructuring; cited passage lines contain exactly this."}
+{"id": "docs-13", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "Correct answer. The cited lines 41450-41529 include the line `const { Box, Text, Button } = $.ui.resolve(e)` in the example hook, which states the fact. The citation line 41481 is within that range."}
+{"id": "docs-14", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Says systemMessage is shown to the user as a warning, which contradicts the passage (it is discarded). It also admits it is unverified."}
+{"id": "docs-14", "arm": "rg", "correct": true, "cited_ok": true, "reason": "States the fields are discarded on every exit code and that Setup hooks can't block. This matches the reference."}
+{"id": "docs-14", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "States the fields are discarded on every exit code and that Setup hooks can't block. This matches the reference."}
+{"id": "docs-15", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "It says the variable expands to empty and never mentions the debug-log warning. It hedges that the docs may describe special handling and admits it didn't verify. The citation points to no line."}
+{"id": "docs-15", "arm": "rg", "correct": true, "cited_ok": true, "reason": "Matches the reference: undefined local variable, $null, path loses prefix, only a debug log warning. The cited lines state this."}
+{"id": "docs-15", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "States undefined local variable resolving to $null, path loses prefix, only debug log warning. Matches the reference."}
+{"id": "docs-16", "arm": "closed-book", "correct": true, "cited_ok": false, "reason": "The answer Ctrl+` is correct, but the citation is 'unknown' and points to no line of the text."}
+{"id": "docs-16", "arm": "rg", "correct": true, "cited_ok": true, "reason": "States Ctrl+` on macOS or Windows; the cited passage says this."}
+{"id": "docs-16", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "States Ctrl+` on macOS or Windows; the cited passage says this."}
+{"id": "docs-17", "arm": "closed-book", "correct": true, "cited_ok": false, "reason": "States bashBorder (hedged, but one answer), matching the reference. Citation points to no line, so it is not valid."}
+{"id": "docs-17", "arm": "rg", "correct": true, "cited_ok": true, "reason": "Answers bashBorder; cited passage contains the table row stating it."}
+{"id": "docs-17", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "Answers bashBorder; cited passage contains the table row stating it."}
+{"id": "docs-18", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Guesses /reload-plugins or restart, which contradicts the passage; citation points nowhere."}
+{"id": "docs-18", "arm": "rg", "correct": true, "cited_ok": true, "reason": "Gives the correct answer. The extra detail about the cached copy and v2.1.287 isn't in the passage, but it doesn't contradict it. The cited lines state the fact."}
+{"id": "docs-18", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "States running claude plugin update from the note or updating from /plugin; matches passage. Citation contains the fact."}
+{"id": "docs-19", "arm": "closed-book", "correct": true, "cited_ok": false, "reason": "States revoking/deleting the API trigger's token, as opposed to removing schedule/GitHub triggers from the list. This matches the reference, though hedged. The citation is 'unknown' and points nowhere."}
+{"id": "docs-19", "arm": "rg", "correct": true, "cited_ok": true, "reason": "Says to delete the token, and that schedule and GitHub triggers use the trash icon plus Save changes. The cited lines state this."}
+{"id": "docs-19", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "Says to delete the token, and that schedule and GitHub triggers use the trash icon plus Save changes. The cited lines state this."}
+{"id": "docs-20", "arm": "closed-book", "correct": true, "cited_ok": false, "reason": "Answer is correct (null for tagSession), but the citation points to no line of the text."}
+{"id": "docs-20", "arm": "rg", "correct": true, "cited_ok": false, "reason": "Says pass null (TypeScript) or None (Python) to clear; matches reference. The cited lines cover the Python tag_session, which says pass None, not null for tagSession(), so they don't state the reference fact."}
+{"id": "docs-20", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "Says to pass null to tagSession(). The cited passage states this directly."}
+{"id": "docs-21", "arm": "closed-book", "correct": true, "cited_ok": false, "reason": "States adding requires the folder trust prompt, which cloud sessions don't show. Matches the reference despite hedging."}
+{"id": "docs-21", "arm": "rg", "correct": true, "cited_ok": true, "reason": "Matches the reference: requires the workspace trust dialog, which a cloud session never shows."}
+{"id": "docs-21", "arm": "rankgrep", "correct": false, "cited_ok": false, "reason": "Gives a different reason (cloud sessions don't load repo settings; only server-managed settings reach them) and never mentions the trust dialog."}
+{"id": "docs-22", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Doesn't give the error string, says it is unsure. The citation points nowhere."}
+{"id": "docs-22", "arm": "rg", "correct": true, "cited_ok": true, "reason": "Gives the correct error and says the path is dropped. The cited lines state this directly in the last sentence."}
+{"id": "docs-22", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "States the error `<component> path escapes plugin directory` and that the path doesn't load (dropped). The cited lines say this explicitly."}
+{"id": "docs-23", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Says it does not know the answer; citation points nowhere."}
+{"id": "docs-23", "arm": "rg", "correct": true, "cited_ok": true, "reason": "States v2.1.280 or later; cited lines include the Status entry with that requirement."}
+{"id": "docs-23", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "States v2.1.280 or later; cited lines include the Status entry with that requirement."}
+{"id": "docs-24", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Says it does not know the answer."}
+{"id": "docs-24", "arm": "rg", "correct": true, "cited_ok": true, "reason": "States four-hour default and eight-hour maximum, matching the reference."}
+{"id": "docs-24", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "States four-hour default and eight-hour maximum, matching the reference."}
+{"id": "docs-25", "arm": "closed-book", "correct": false, "cited_ok": false, "reason": "Says it could not verify; gives only a vague guess without the 'Input tag' pattern."}
+{"id": "docs-25", "arm": "rg", "correct": true, "cited_ok": true, "reason": "States 400 or 422 and the 'Input tag' pattern with the example, matching the reference."}
+{"id": "docs-25", "arm": "rankgrep", "correct": true, "cited_ok": true, "reason": "States 400 or 422 and the 'Input tag' pattern with the example, matching the reference."}
