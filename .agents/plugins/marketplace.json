@@ -1,0 +1,20 @@
+{
+  "name": "rankgrep",
+  "interface": {
+    "displayName": "rankgrep"
+  },
+  "plugins": [
+    {
+      "name": "rankgrep",
+      "source": {
+        "source": "local",
+        "path": "./"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Developer Tools"
+    }
+  ]
+}

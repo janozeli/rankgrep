@@ -1,0 +1,36 @@
+{
+  "name": "rankgrep",
+  "version": "0.1.0",
+  "description": "BM25 search over large local text for coding agents. Ranks sections of docs, llms-full.txt files, books, or any text file and prints exact line ranges as JSON Lines.",
+  "author": {
+    "name": "Lucas Janozeli",
+    "email": "75371858+janozeli@users.noreply.github.com"
+  },
+  "homepage": "https://github.com/janozeli/rankgrep",
+  "repository": "https://github.com/janozeli/rankgrep",
+  "license": "MIT",
+  "keywords": [
+    "bm25",
+    "search",
+    "documentation",
+    "cli",
+    "coding-agent",
+    "claude-code",
+    "codex"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "rankgrep",
+    "shortDescription": "BM25 search over local docs and long text",
+    "longDescription": "BM25 search over large local text for coding agents. Ranks sections of docs, llms-full.txt files, books, or any text file and prints exact line ranges as JSON Lines.",
+    "developerName": "Lucas Janozeli",
+    "category": "Developer Tools",
+    "capabilities": [
+      "Read"
+    ],
+    "defaultPrompt": [
+      "Look up how hooks are configured in docs/claude-code/llms-full.txt.",
+      "Find where this book describes the storm at the lighthouse."
+    ]
+  }
+}

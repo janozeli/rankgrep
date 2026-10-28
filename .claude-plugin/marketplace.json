@@ -1,0 +1,15 @@
+{
+  "name": "rankgrep",
+  "description": "BM25 search over large local text for coding agents. Ranks sections of docs, llms-full.txt files, books, or any text file and prints exact line ranges as JSON Lines.",
+  "owner": {
+    "name": "Lucas Janozeli"
+  },
+  "plugins": [
+    {
+      "name": "rankgrep",
+      "source": "./",
+      "description": "BM25 search over large local text for coding agents. Ranks sections of docs, llms-full.txt files, books, or any text file and prints exact line ranges as JSON Lines.",
+      "version": "0.1.0"
+    }
+  ]
+}
