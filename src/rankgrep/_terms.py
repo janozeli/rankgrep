@@ -1,5 +1,6 @@
 """How text becomes BM25 terms. Documents and queries both go through ``terms``."""
 
+import functools
 import re
 import unicodedata
 
@@ -31,20 +32,21 @@ def terms(text: str) -> list[str]:
     """
     out: list[str] = []
     for match in _RUN.finditer(unicodedata.normalize("NFKC", text)):
-        run = match.group()
-        candidates = [run]
-        for segment in _JOINERS.split(run):
-            if segment:
-                candidates.append(segment)
-                candidates.extend(_parts(segment))
-        seen: set[str] = set()
-        for candidate in candidates:
-            term = _fold(candidate)
-            if term not in seen:
-                seen.add(term)
-                if _searchable(term):
-                    out.append(term)
+        out.extend(_run_terms(match.group()))
     return out
+
+
+@functools.lru_cache(maxsize=1 << 16)
+def _run_terms(run: str) -> tuple[str, ...]:
+    """Cached because text repeats the same words: tokenizing was nearly all
+    of the index build time before this cache."""
+    candidates = [run]
+    for segment in _JOINERS.split(run):
+        if segment:
+            candidates.append(segment)
+            candidates.extend(_parts(segment))
+    unique = dict.fromkeys(_fold(candidate) for candidate in candidates)
+    return tuple(term for term in unique if _searchable(term))
 
 
 def _searchable(term: str) -> bool:
