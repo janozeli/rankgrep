@@ -1,0 +1,13 @@
+#!/bin/sh
+# An editable install in a per-user environment keeps the CLI in step with
+# this plugin's source after an update. `uv tool run --from` keeps serving
+# its first build of a local folder, and writing .venv here would dirty the
+# plugin folder.
+root=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd -P) || exit 2
+if ! command -v uv >/dev/null 2>&1; then
+  echo "rankgrep: needs uv. Install it from https://docs.astral.sh/uv/ and run the command again." >&2
+  exit 2
+fi
+env_id=$(printf %s "$root" | cksum | cut -d ' ' -f 1)
+UV_PROJECT_ENVIRONMENT="${XDG_CACHE_HOME:-$HOME/.cache}/rankgrep/env-$env_id" \
+  exec uv run --quiet --frozen --no-dev --project "$root" rankgrep "$@"
