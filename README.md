@@ -8,7 +8,7 @@ It is built for an agent that works alone. It searches documentation sets, `llms
 
 `rg` finds a string you already know. An agent looking something up in a 10 MB documentation file usually knows the topic but not the wording, and reading the whole file costs millions of tokens. rankgrep ranks sections with BM25 and prints where each one starts and ends. A short skill teaches the agent the loop: search with keywords, read the range, search again with the words the docs use, then switch to `rg`.
 
-The claim this repository makes is that one good lexical search tool is enough for an agent to find what it needs in a lot of text. It uses no embeddings, no vector database, and no model calls. The index builds itself on the first search, notices every file change, and stays correct when two agents search at once.
+The claim this repository makes is that one good lexical search tool is enough for an agent to find what it needs in a lot of text. It uses no embeddings, no vector database, and no model calls. The index builds itself on the first search, notices every file change, and stays correct when two agents search at once. [Does it work?](#does-it-work) tests the claim, and compares rankgrep with plain `rg`.
 
 ## Install
 
@@ -124,6 +124,73 @@ Measured on Linux with 12 cores and the Claude Code `llms-full.txt` (10 MB, 6,04
 | Later searches | 0.20 s (range 0.19 to 0.22 s) |
 
 Tokenizing in Python is most of the build. Python startup plus importing bm25s and numpy is 0.11 s of every search, and uv adds about 0.03 s.
+
+## Does it work?
+
+An agent whose only search tool was rankgrep answered 48 of 50 lookup questions correctly, and for 48 of them it cited lines that state the answer. The same agent with no tools answered 15. With only `rg` it answered 49, for less money and in less time. One lexical search tool was enough on these two texts. These questions don't show rankgrep finding more than `rg`.
+
+| Text | Setup | Correct | Found | Cited lines state the answer | Cost per question | Seconds, median |
+| --- | --- | --- | --- | --- | --- | --- |
+| Claude Code docs | no tools | 7/25 | 0/25 | 0/25 | $0.007 | 5.1 |
+| Claude Code docs | `rg` | 24/25 | 22/25 | 23/25 | $0.036 | 6.0 |
+| Claude Code docs | rankgrep | 23/25 | 19/25 | 23/25 | $0.043 | 10.7 |
+| Les Misérables | no tools | 8/25 | 0/25 | 0/25 | $0.012 | 9.4 |
+| Les Misérables | `rg` | 25/25 | 25/25 | 25/25 | $0.027 | 7.3 |
+| Les Misérables | rankgrep | 25/25 | 25/25 | 25/25 | $0.042 | 11.6 |
+
+- **Correct.** A judge model says the answer states the reference fact.
+- **Found.** The cited line is inside the section that the question was written from. A script decides this, with no model.
+- **Cited lines state the answer.** The judge says the section around the cited line states the reference fact, wherever that section is. The docs repeat facts across pages and in the changelog, so a correct citation can land outside the source section. Four of rankgrep's six docs misses on Found are citations of this kind.
+
+Cost is at API list prices, as `claude -p` reports it. [`evals/results/summary.md`](evals/results/summary.md) adds 95% intervals, token counts, and the outcome of every question.
+
+### What the numbers say
+
+- **The test can't rank the two tools.** On the book, both found all 25. On the docs, only rankgrep found the source section on 2 questions, and only `rg` on 5. An exact sign test on those 7 questions gives p = 0.45, so the gap is within noise.
+- **The questions were easier for `rg` than intended.** The question writer was told to avoid the section's words where a paraphrase exists. Even so, a question shares a median 73% (docs) and 67% (book) of its rankgrep search terms with its section, because names such as Jondrette or `extraKnownMarketplaces` survive any paraphrase. With those words, 38 of 50 `rg` runs and 45 of 50 rankgrep runs needed one successful search.
+- **rankgrep cost more per question.** The paired median is 1.26 times the `rg` cost on the docs and 1.75 times on the book. Every rankgrep run spends a turn loading the skill. A rankgrep hit prints one line, so 44 of 50 runs then read the line range with the Read tool. `rg -C` prints the lines around each match, and 24 of 50 `rg` runs read nothing more. The median run took 7 turns with rankgrep and 3 or 4 with `rg`. Each turn resends the whole context, which is most of the token count.
+- **The model already knows both texts.** With no tools it answered 15 of 50 from memory, including details such as the heap of empty bottles in Marius's ground-floor room. A correct answer alone says little. The citation columns show the lookup.
+
+### How it was measured
+
+The agent is Claude Sonnet 5.5 (`claude-sonnet-5-5`) through `claude -p`, in Claude Code 2.1.312. It answered each question once in each of three setups:
+
+- **No tools.** It answers from what the model already knows.
+- **`rg`.** Bash runs only `rg`, and the Read tool works.
+- **rankgrep.** Bash runs only the rankgrep launcher, and the Read tool works. The plugin loads with `--plugin-dir`, so the agent sees the skill's description and loads the skill the same way it does after `/plugin install`.
+
+The two texts:
+
+- The Claude Code docs, [`llms-full.txt`](https://code.claude.com/docs/llms-full.txt), 10 MB in 6,049 rankgrep sections.
+- *Les Misérables* in Isabel Hapgood's translation, [Project Gutenberg eBook 135](https://www.gutenberg.org/ebooks/135), 3.4 MB in 1,040 sections. It is a long public-domain book with no headings, so rankgrep splits it at blank lines. Its 19th-century wording differs from how a reader asks today.
+
+The harness downloads both at run time and checks each against a pinned sha256. Neither text is in this repository.
+
+Questions. A seeded script picks rankgrep sections at random and shows them to the same model, 6 at a time. For each section, the model writes one question that only that section answers, in other words than the section uses where it can. It also writes a short answer and quotes the line that states it. The script drops a question when its quote also appears outside its section, so that each question has one source in the text. It keeps the first 25 per text. Of the 84 candidates written, the script dropped 8 docs questions whose quote appears elsewhere, the writer skipped 2 sections that state no fact, and 24 were not needed.
+
+The request names the file, asks the question, and asks for a last line of JSON with the answer and a `path:line` citation. Every setup gets the same request.
+
+Isolation. Each setup works in its own folder called `notes-library`, with a clean environment, no user settings, no `CLAUDE.md`, no MCP servers, and no auto memory. Claude Code's `dontAsk` mode still runs read-only commands such as `grep` and `sed` without a permission rule. So a PreToolUse hook, [`evals/guard.py`](evals/guard.py), refuses any Bash command other than the one program, and any pipe, redirection, or path outside the folder. Read works only inside the folder. Both tool setups have the Skill tool. In the `rg` setup no skill may run, so the two tool setups see the same system prompt apart from the rankgrep skill. The no-tools setup gets one extra system-prompt sentence that says it has no tools. Without it, the pilot agent wrote tool calls as plain text until it hit the output limit.
+
+Grading. The judge is the same model with no tools. For each question it sees the question, the reference answer, the source section, the three replies under shuffled labels, and the section around each reply's citation.
+
+### Limits
+
+- **One run per question per setup.** The 6 pilot questions ran twice in all three setups, and 2 of the 18 outcomes changed. With 25 questions per text, a 95% interval is 13 to 35 points wide. A paired difference needs about 6 questions that all go one way to reach p < 0.05.
+- **One model family.** Sonnet wrote the questions, answered them, and graded them, because no other family was available here. The verdicts on the 8 questions where a tool setup missed any column were read by hand. One is arguable. On docs-08, the `rg` reply listed the right Bedrock actions, but from the GitHub Actions page instead of the GitLab one, and the judge marked it wrong.
+- **One program, no pipes.** All 100 tool runs began with a command that the hook refused, usually a `grep` pipeline or a `cd`, and then adapted. A real user has rankgrep, `rg`, and the whole shell together. This measures each tool alone.
+- **Easy questions.** Questions written from random sections keep the section's names and identifiers. Questions that real users ask, with vaguer words, may separate the two tools. These don't. Of 12 questions read by hand against their sections, 10 are specific and have one answer. docs-01 is vague, and docs-11 asks about the structure of a docs page.
+- **The docs change.** `llms-full.txt` changes often, and the questions point at line ranges of the pinned version. When the downloaded file no longer matches the pinned sha256, the harness stops. A new question set needs `uv run evals/harness.py questions` and a new pin.
+
+### Reproduce
+
+You need Claude Code with a working `claude -p` login, uv, `rg`, and network access. Then run:
+
+```
+uv run evals/harness.py all
+```
+
+`all` downloads the texts, runs the 150 agent runs and 50 judge calls, and writes `evals/results/`. It reuses the committed `questions.jsonl`. Every `claude -p` call is cached under `--work`, which defaults to `notes-desk` in the system temp folder, so a rerun repeats only what is missing. The committed run cost $5.18 at list prices, plus $0.59 for the 14 calls that wrote the questions. The agents' folders hold only the two texts, and no path an agent sees mentions the measurement.
 
 ## Limitations
 
