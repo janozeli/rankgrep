@@ -1,0 +1,42 @@
+[project]
+name = "rankgrep"
+version = "0.1.0"
+description = "BM25 search over large local text for coding agents. Ranks sections of docs, llms-full.txt files, books, or any text file and prints exact line ranges as JSON Lines."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [
+    { name = "Lucas Janozeli", email = "75371858+janozeli@users.noreply.github.com" },
+]
+keywords = ["bm25", "search", "documentation", "cli", "coding-agent", "claude-code", "codex"]
+requires-python = ">=3.12"
+dependencies = [
+    # Exact pin: ranking and the saved index format must not drift between installs.
+    "bm25s==0.3.15",
+    "numpy>=2",
+]
+
+[project.urls]
+Homepage = "https://github.com/janozeli/rankgrep"
+Repository = "https://github.com/janozeli/rankgrep"
+Issues = "https://github.com/janozeli/rankgrep/issues"
+
+[project.scripts]
+rankgrep = "rankgrep:main"
+
+# Plugin fields that [project] has no slot for. scripts/sync_plugin.py reads them.
+[tool.rankgrep.plugin]
+display-name = "rankgrep"
+short-description = "BM25 search over local docs and long text"
+category = "Developer Tools"
+default-prompts = [
+    "Look up how hooks are configured in docs/claude-code/llms-full.txt.",
+    "Find where this book describes the storm at the lighthouse.",
+]
+
+[build-system]
+requires = ["uv_build>=0.13.6,<0.14.0"]
+build-backend = "uv_build"
+
+[dependency-groups]
+dev = ["pytest>=9.2.0"]
