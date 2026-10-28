@@ -1,0 +1,7 @@
+These notes are plain text, not markdown.
+
+# A line that starts with a hash is just text here.
+
+Release checklist: bump the version, regenerate the manifests, tag the commit.
+
+# Another hash line, still plain text.

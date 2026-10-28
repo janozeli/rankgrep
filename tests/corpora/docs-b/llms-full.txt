@@ -1,0 +1,22 @@
+# Library
+
+> A small library for talking to a remote service.
+
+## Rate limits
+
+Requests over the limit get HTTP 429. Read the retry-after header and retry
+with exponential backoff.
+
+### Response headers
+
+retry-after: seconds to wait before the next request.
+
+## Errors
+
+### HTTP errors
+
+429 means the account hit a rate limit. 500 means the service failed.
+
+## Streaming
+
+Streaming responses arrive as server-sent events, one event per line.

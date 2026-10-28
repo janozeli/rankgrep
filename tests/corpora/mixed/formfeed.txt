@@ -1,0 +1,4 @@
+first line
+second linewith a form feed
+third line with a line separator
+fourth line mentions the beacon
