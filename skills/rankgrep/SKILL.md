@@ -8,7 +8,7 @@ allowed-tools: Bash(${CLAUDE_PLUGIN_ROOT}/bin/rankgrep *)
 
 `${CLAUDE_PLUGIN_ROOT}/bin/rankgrep "<keywords>" <path>...` splits the named files and folders into sections, ranks the sections against your keywords, and prints one JSON line per hit. If your harness left `${CLAUDE_PLUGIN_ROOT}` unexpanded, use the launcher at `../../bin/rankgrep`, relative to the folder that holds this file, as an absolute path. The launcher needs `uv`.
 
-The first search on a set of paths builds an index, which takes about 5 seconds for 10 MB of text. Later searches reuse it and take a fraction of a second, until a file changes.
+The first search on a set of paths builds an index, which takes about 1.5 seconds for 10 MB of text. Later searches reuse it and take a fraction of a second, until a file changes.
 
 ## Search loop
 
