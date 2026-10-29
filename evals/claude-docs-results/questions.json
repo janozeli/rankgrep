@@ -1,0 +1,131 @@
+[
+  {
+    "id": "direct-1",
+    "axis": "direct",
+    "question": "Which CLI option limits agentic turns in a non-interactive Claude Code run, what happens at the limit, and how does it interact with the corresponding environment variable?",
+    "reference_lines": [
+      [
+        61778
+      ],
+      [
+        64618
+      ]
+    ]
+  },
+  {
+    "id": "direct-2",
+    "axis": "direct",
+    "question": "If a tool call matches permission rules in deny, ask and allow, how is the outcome chosen? Can an allowing PreToolUse hook override a matching deny or ask rule?",
+    "reference_lines": [
+      [
+        79572,
+        93474
+      ],
+      [
+        80145
+      ]
+    ]
+  },
+  {
+    "id": "vague-1",
+    "axis": "vague",
+    "question": "After a long conversation was shortened, some project instructions remain but other reminders seem forgotten. Explain what is reloaded automatically, what waits until relevant files are touched again, and where a chat-only reminder should live to persist.",
+    "reference_lines": [
+      [
+        36388,
+        65961
+      ],
+      [
+        36388
+      ],
+      [
+        36390
+      ]
+    ]
+  },
+  {
+    "id": "vague-2",
+    "axis": "vague",
+    "question": "My local extension has a manifest but none of its skills appear. I put all the components inside the hidden manifest folder, and may have pointed the loader at the folder containing the marketplace. What directory layout and loader target should I check?",
+    "reference_lines": [
+      [
+        81421
+      ],
+      [
+        81532
+      ]
+    ]
+  },
+  {
+    "id": "constraints-1",
+    "axis": "constraints",
+    "question": "I want a deployment skill that only I can trigger manually, with no description consuming context before invocation. Which frontmatter setting does that, and why would hiding it from the slash-command menu not meet those requirements?",
+    "reference_lines": [
+      [
+        47528,
+        47556
+      ],
+      [
+        47556,
+        29317,
+        32663
+      ],
+      [
+        47530,
+        47557,
+        47876
+      ]
+    ]
+  },
+  {
+    "id": "constraints-2",
+    "axis": "constraints",
+    "question": "I want a background validation hook that can veto the tool action after its test finishes, and I also need its process to finish after a headless run exits. Which parts of this plan are unsupported, and what hook type accepts the background option?",
+    "reference_lines": [
+      [
+        70857
+      ],
+      [
+        70861
+      ],
+      [
+        70888
+      ]
+    ]
+  },
+  {
+    "id": "synthesis-1",
+    "axis": "synthesis",
+    "question": "A plugin skill calls a bundled script and stores a generated index. It must work from any current directory and keep the index across plugin upgrades. Distinguish the skill directory, the plugin installation root and the persistent data directory, and explain which one should hold the index.",
+    "reference_lines": [
+      [
+        47458
+      ],
+      [
+        38542
+      ],
+      [
+        38543,
+        47461
+      ]
+    ]
+  },
+  {
+    "id": "synthesis-2",
+    "axis": "synthesis",
+    "question": "I invoked a skill in the parent conversation and then delegated work to a normal custom subagent, not a fork. What prior context does the child not receive, which project instruction files can it still receive by default, and how do I arrange for a skill body to be loaded at child startup?",
+    "reference_lines": [
+      [
+        49578
+      ],
+      [
+        49584
+      ],
+      [
+        49106,
+        49586,
+        29349
+      ]
+    ]
+  }
+]

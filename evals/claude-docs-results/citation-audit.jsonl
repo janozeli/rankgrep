@@ -1,0 +1,40 @@
+{"id": "constraints-1", "arm": "capabilities", "covered": [true, true, true], "coverage": 1.0}
+{"id": "constraints-1", "arm": "domain", "covered": [true, true, true], "coverage": 1.0}
+{"id": "constraints-1", "arm": "free", "covered": [true, true, true], "coverage": 1.0}
+{"id": "constraints-1", "arm": "original", "covered": [true, true, true], "coverage": 1.0}
+{"id": "constraints-1", "arm": "output", "covered": [true, true, true], "coverage": 1.0}
+{"id": "constraints-2", "arm": "capabilities", "covered": [true, true, true], "coverage": 1.0}
+{"id": "constraints-2", "arm": "domain", "covered": [true, true, true], "coverage": 1.0}
+{"id": "constraints-2", "arm": "free", "covered": [true, true, true], "coverage": 1.0}
+{"id": "constraints-2", "arm": "original", "covered": [true, true, true], "coverage": 1.0}
+{"id": "constraints-2", "arm": "output", "covered": [true, true, true], "coverage": 1.0}
+{"id": "direct-1", "arm": "capabilities", "covered": [true, true], "coverage": 1.0}
+{"id": "direct-1", "arm": "domain", "covered": [true, true], "coverage": 1.0}
+{"id": "direct-1", "arm": "free", "covered": [true, true], "coverage": 1.0}
+{"id": "direct-1", "arm": "original", "covered": [true, true], "coverage": 1.0}
+{"id": "direct-1", "arm": "output", "covered": [true, true], "coverage": 1.0}
+{"id": "direct-2", "arm": "capabilities", "covered": [true, true], "coverage": 1.0}
+{"id": "direct-2", "arm": "domain", "covered": [true, true], "coverage": 1.0}
+{"id": "direct-2", "arm": "free", "covered": [true, true], "coverage": 1.0}
+{"id": "direct-2", "arm": "original", "covered": [true, true], "coverage": 1.0}
+{"id": "direct-2", "arm": "output", "covered": [true, true], "coverage": 1.0}
+{"id": "synthesis-1", "arm": "capabilities", "covered": [true, true, true], "coverage": 1.0}
+{"id": "synthesis-1", "arm": "domain", "covered": [true, true, true], "coverage": 1.0}
+{"id": "synthesis-1", "arm": "free", "covered": [true, true, true], "coverage": 1.0}
+{"id": "synthesis-1", "arm": "original", "covered": [true, true, true], "coverage": 1.0}
+{"id": "synthesis-1", "arm": "output", "covered": [true, true, true], "coverage": 1.0}
+{"id": "synthesis-2", "arm": "capabilities", "covered": [true, true, true], "coverage": 1.0}
+{"id": "synthesis-2", "arm": "domain", "covered": [true, true, true], "coverage": 1.0}
+{"id": "synthesis-2", "arm": "free", "covered": [true, true, true], "coverage": 1.0}
+{"id": "synthesis-2", "arm": "original", "covered": [true, true, true], "coverage": 1.0}
+{"id": "synthesis-2", "arm": "output", "covered": [true, true, true], "coverage": 1.0}
+{"id": "vague-1", "arm": "capabilities", "covered": [true, true, true], "coverage": 1.0}
+{"id": "vague-1", "arm": "domain", "covered": [true, true, true], "coverage": 1.0}
+{"id": "vague-1", "arm": "free", "covered": [true, true, true], "coverage": 1.0}
+{"id": "vague-1", "arm": "original", "covered": [true, true, true], "coverage": 1.0}
+{"id": "vague-1", "arm": "output", "covered": [true, true, true], "coverage": 1.0}
+{"id": "vague-2", "arm": "capabilities", "covered": [true, true], "coverage": 1.0}
+{"id": "vague-2", "arm": "domain", "covered": [true, true], "coverage": 1.0}
+{"id": "vague-2", "arm": "free", "covered": [true, true], "coverage": 1.0}
+{"id": "vague-2", "arm": "original", "covered": [true, true], "coverage": 1.0}
+{"id": "vague-2", "arm": "output", "covered": [true, true], "coverage": 1.0}
