@@ -24,15 +24,22 @@ _WORD = re.compile(r"\w+")
 
 @dataclass(frozen=True, slots=True)
 class Query:
-    """Non-empty, distinct terms in query order. ``parse`` returns None
-    instead of an empty Query, because bm25s raises on an empty term list."""
+    """Distinct active terms and their positive weights in query order.
+
+    Extra text uses the same tokenizer; later assignments replace weights.
+    ``parse`` drops zero-weight terms and returns None if no terms remain.
+    """
 
     terms: tuple[str, ...]
+    weights: tuple[float, ...]
 
     @classmethod
-    def parse(cls, text: str) -> "Query | None":
-        unique = tuple(dict.fromkeys(terms(text)))
-        return cls(unique) if unique else None
+    def parse(cls, text: str, weighted: tuple[tuple[str, float], ...] = ()) -> "Query | None":
+        values = dict.fromkeys(terms(text), 1.0)
+        for extra, weight in weighted:
+            values.update(dict.fromkeys(terms(extra), weight))
+        active = {term: weight for term, weight in values.items() if weight > 0}
+        return cls(tuple(active), tuple(active.values())) if active else None
 
 
 @dataclass(frozen=True, slots=True)
@@ -153,7 +160,16 @@ class Index:
         unknown = tuple(t for t in query.terms if t not in vocab)
         if not known:
             return Result((), unknown)
-        scores = self._bm25.get_scores(known)
+        groups: dict[float, list[str]] = {}
+        for term, weight in zip(query.terms, query.weights):
+            if term in vocab:
+                groups.setdefault(weight, []).append(term)
+        if set(groups) == {1.0}:
+            scores = self._bm25.get_scores(known)
+        else:
+            scores = np.zeros(len(self.chunks), dtype=np.float64)
+            for weight, group in groups.items():
+                scores += self._bm25.get_scores(group).astype(np.float64) * weight
         ids = np.flatnonzero(scores > 0)
         ids = ids[np.argsort(-scores[ids], kind="stable")][:top]
         files: dict[int, list[str]] = {}
