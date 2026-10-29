@@ -1,0 +1,72 @@
+[
+  {
+    "topic": "angular",
+    "kind": "queries",
+    "url": "https://huggingface.co/datasets/freshstack/queries-oct-2024/resolve/023ac3a14caf9d6ebb13d01adcfb8fa05e5a9630/angular/test-00000-of-00001.parquet",
+    "sha256": "1b423058621c170b6051b956106eb1a825b4b966e8e04db01a998f923138ec9c",
+    "bytes": 361229
+  },
+  {
+    "topic": "angular",
+    "kind": "corpus",
+    "url": "https://huggingface.co/datasets/freshstack/corpus-oct-2024/resolve/069f66dc323e163b48b10d08408d282733d4393b/angular/train-00000-of-00001.parquet",
+    "sha256": "d0eacace62e67c6880f114f75554e7ae6b362062935bc8a54f03a9113f3d5879",
+    "bytes": 71892184
+  },
+  {
+    "topic": "godot",
+    "kind": "queries",
+    "url": "https://huggingface.co/datasets/freshstack/queries-oct-2024/resolve/023ac3a14caf9d6ebb13d01adcfb8fa05e5a9630/godot/test-00000-of-00001.parquet",
+    "sha256": "04bda2c8693969729c28e77b675837692f915f459a1848e6337a1801707f1e38",
+    "bytes": 291414
+  },
+  {
+    "topic": "godot",
+    "kind": "corpus",
+    "url": "https://huggingface.co/datasets/freshstack/corpus-oct-2024/resolve/069f66dc323e163b48b10d08408d282733d4393b/godot/train-00000-of-00001.parquet",
+    "sha256": "2e3f700c033c3f5dc6cdc4dd05c7e402baca1b7c4f9ed87a274ce73f4b6ffa41",
+    "bytes": 33422376
+  },
+  {
+    "topic": "langchain",
+    "kind": "queries",
+    "url": "https://huggingface.co/datasets/freshstack/queries-oct-2024/resolve/023ac3a14caf9d6ebb13d01adcfb8fa05e5a9630/langchain/test-00000-of-00001.parquet",
+    "sha256": "319effb837de2f3cd8c6bda5d07a406db44ae2486f5239a0f145ca3eef71ac45",
+    "bytes": 661304
+  },
+  {
+    "topic": "langchain",
+    "kind": "corpus",
+    "url": "https://huggingface.co/datasets/freshstack/corpus-oct-2024/resolve/069f66dc323e163b48b10d08408d282733d4393b/langchain/train-00000-of-00001.parquet",
+    "sha256": "f1e63bf897f30062704cd77b22a4c4961ea74824c0511c17e20098f4f203fa52",
+    "bytes": 70930374
+  },
+  {
+    "topic": "laravel",
+    "kind": "queries",
+    "url": "https://huggingface.co/datasets/freshstack/queries-oct-2024/resolve/023ac3a14caf9d6ebb13d01adcfb8fa05e5a9630/laravel/test-00000-of-00001.parquet",
+    "sha256": "ef0d1426c5613ea6ab21a6e8d35419d5fa5be2cef2e1774b5834027e1696751f",
+    "bytes": 427551
+  },
+  {
+    "topic": "laravel",
+    "kind": "corpus",
+    "url": "https://huggingface.co/datasets/freshstack/corpus-oct-2024/resolve/069f66dc323e163b48b10d08408d282733d4393b/laravel/train-00000-of-00001.parquet",
+    "sha256": "3d7c39368af7ccf23c41d69bc95d0b942060a4f140a38664bede593a51375a01",
+    "bytes": 39525810
+  },
+  {
+    "topic": "yolo",
+    "kind": "queries",
+    "url": "https://huggingface.co/datasets/freshstack/queries-oct-2024/resolve/023ac3a14caf9d6ebb13d01adcfb8fa05e5a9630/yolo/test-00000-of-00001.parquet",
+    "sha256": "87b4b2e3fcbec3ca7f5a64d2b7fb404480689288f4d82b5f8b15d07b7050c49f",
+    "bytes": 147711
+  },
+  {
+    "topic": "yolo",
+    "kind": "corpus",
+    "url": "https://huggingface.co/datasets/freshstack/corpus-oct-2024/resolve/069f66dc323e163b48b10d08408d282733d4393b/yolo/train-00000-of-00001.parquet",
+    "sha256": "bb59408c51b3bddc527ae5de46858955d129b9157adb1100e6a7b50c560c76da",
+    "bytes": 42140310
+  }
+]

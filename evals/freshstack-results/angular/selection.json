@@ -1,0 +1,47 @@
+{
+  "protocol": 2,
+  "sources": [
+    {
+      "topic": "angular",
+      "kind": "queries",
+      "url": "https://huggingface.co/datasets/freshstack/queries-oct-2024/resolve/023ac3a14caf9d6ebb13d01adcfb8fa05e5a9630/angular/test-00000-of-00001.parquet",
+      "sha256": "1b423058621c170b6051b956106eb1a825b4b966e8e04db01a998f923138ec9c",
+      "bytes": 361229
+    },
+    {
+      "topic": "angular",
+      "kind": "corpus",
+      "url": "https://huggingface.co/datasets/freshstack/corpus-oct-2024/resolve/069f66dc323e163b48b10d08408d282733d4393b/angular/train-00000-of-00001.parquet",
+      "sha256": "d0eacace62e67c6880f114f75554e7ae6b362062935bc8a54f03a9113f3d5879",
+      "bytes": 71892184
+    }
+  ],
+  "engine_sha256": "07a7103eea7d54b6a4d1ffa57e7a72843953f5088ecdcecd800fa561aefd23cc",
+  "bm25s": "0.3.15",
+  "numpy": "2.5.4",
+  "agent_protocol": 2,
+  "arms": [
+    "free",
+    "free+rankgrep"
+  ],
+  "selection": [
+    "77758875",
+    "77853592",
+    "78574123",
+    "77222873",
+    "78234808",
+    "77502134",
+    "77987521",
+    "78008054",
+    "78363676",
+    "77680044"
+  ],
+  "model_requested": "sonnet",
+  "plugin_commit": "31379def63c8eb4a21f0be3ecf5f1e2e52ff8a00",
+  "seed": "rankgrep-freshstack-free-1",
+  "max_turns": 24,
+  "max_budget_usd": "2",
+  "permission_mode": "bypassPermissions",
+  "tools": "default",
+  "project_venv_on_path": false
+}

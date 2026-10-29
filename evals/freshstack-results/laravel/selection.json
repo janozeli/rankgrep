@@ -1,0 +1,47 @@
+{
+  "protocol": 2,
+  "sources": [
+    {
+      "topic": "laravel",
+      "kind": "queries",
+      "url": "https://huggingface.co/datasets/freshstack/queries-oct-2024/resolve/023ac3a14caf9d6ebb13d01adcfb8fa05e5a9630/laravel/test-00000-of-00001.parquet",
+      "sha256": "ef0d1426c5613ea6ab21a6e8d35419d5fa5be2cef2e1774b5834027e1696751f",
+      "bytes": 427551
+    },
+    {
+      "topic": "laravel",
+      "kind": "corpus",
+      "url": "https://huggingface.co/datasets/freshstack/corpus-oct-2024/resolve/069f66dc323e163b48b10d08408d282733d4393b/laravel/train-00000-of-00001.parquet",
+      "sha256": "3d7c39368af7ccf23c41d69bc95d0b942060a4f140a38664bede593a51375a01",
+      "bytes": 39525810
+    }
+  ],
+  "engine_sha256": "07a7103eea7d54b6a4d1ffa57e7a72843953f5088ecdcecd800fa561aefd23cc",
+  "bm25s": "0.3.15",
+  "numpy": "2.5.4",
+  "agent_protocol": 2,
+  "arms": [
+    "free",
+    "free+rankgrep"
+  ],
+  "selection": [
+    "78279024",
+    "76823724",
+    "77936065",
+    "77394088",
+    "76905048",
+    "77833768",
+    "76083286",
+    "77969870",
+    "76210394",
+    "76996845"
+  ],
+  "model_requested": "sonnet",
+  "plugin_commit": "31379def63c8eb4a21f0be3ecf5f1e2e52ff8a00",
+  "seed": "rankgrep-freshstack-free-1",
+  "max_turns": 24,
+  "max_budget_usd": "2",
+  "permission_mode": "bypassPermissions",
+  "tools": "default",
+  "project_venv_on_path": false
+}

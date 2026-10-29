@@ -8,7 +8,7 @@ It is built for an agent that works alone. It searches documentation sets, `llms
 
 `rg` finds a string you already know. An agent looking something up in a 10 MB documentation file usually knows the topic but not the wording, and reading the whole file costs millions of tokens. rankgrep ranks sections with BM25 and prints where each one starts and ends. A short skill teaches the agent the loop: search with keywords, read the range, search again with the words the docs use, then switch to `rg`.
 
-The claim this repository makes is that one good lexical search tool is enough for an agent to find what it needs in a lot of text. It uses no embeddings, no vector database, and no model calls. The index builds itself on the first search, notices every file change, and stays correct when two agents search at once. [Does it work?](#does-it-work) tests the claim, and compares rankgrep with plain `rg`.
+rankgrep is one Unix tool in the agent's toolbox. It complements `rg`, file readers, scripts, and pipelines through structured stdout and ordinary exit codes. It uses no embeddings, no vector database, and no model calls. The index builds itself on the first search, notices every file change, and stays correct when two agents search at once. [The FreshStack evaluation](evals/FRESHSTACK.md) compares a free agent with the same free agent given rankgrep; neither is forced to use a particular search tool. The earlier isolated-tool experiments are recorded below.
 
 ## Install
 
@@ -125,7 +125,13 @@ Measured on Linux with 12 cores and the Claude Code `llms-full.txt` (10 MB, 6,04
 
 Tokenizing in Python is most of the build. Python startup plus importing bm25s and numpy is 0.11 s of every search, and uv adds about 0.03 s.
 
-## Does it work?
+## Does it help a free agent?
+
+[The FreshStack benchmark](evals/FRESHSTACK.md) compares a free agent with the same agent given the optional rankgrep plugin: the normal tools, shell commands and pipelines remain available in both. It uses real developer questions and 271,816 documentation/code chunks across Angular, Godot, LangChain, Laravel and YOLO. The runner supports all 672 questions; the saved run uses a fixed sample of 50 paired questions.
+
+In those 100 calls, the augmented agent never invoked rankgrep despite having it available in all 50 sessions. This measures lack of adoption in that run; it does not establish a benefit or disadvantage from executing rankgrep. [The results and limitations](evals/FRESHSTACK.md#observed-run) explain the evidence scores, path-reporting errors and why the raw score gap cannot rank the search engines.
+
+## Earlier isolated-tool experiments
 
 An agent whose only search tool was rankgrep answered 48 of 50 lookup questions correctly, and for 48 of them it cited lines that state the answer. The same agent with no tools answered 15. With only `rg` it answered 49, for less money and in less time. One lexical search tool was enough on these two texts. These questions don't show rankgrep finding more than `rg`.
 
