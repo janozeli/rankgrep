@@ -1,0 +1,217 @@
+{
+  "arms": {
+    "free": {
+      "sessions": 30,
+      "coverage@20": 0.7138888888888889,
+      "recall@20": 0.2936790986790987,
+      "median_seconds": 9.924831173499115,
+      "mean_output_tokens": 496.6,
+      "mean_input_tokens": 81270.23333333334,
+      "invoked": 0,
+      "returned_hits": 0,
+      "statistics_returned": 0,
+      "weights_requested": 0,
+      "errors": 0,
+      "mean_absolute_repeat_gap": 0.016666666666666666
+    },
+    "original": {
+      "sessions": 30,
+      "coverage@20": 0.7222222222222222,
+      "recall@20": 0.30846542346542344,
+      "median_seconds": 11.328565895502834,
+      "mean_output_tokens": 543.0666666666667,
+      "mean_input_tokens": 86072.1,
+      "invoked": 1,
+      "returned_hits": 1,
+      "statistics_returned": 0,
+      "weights_requested": 0,
+      "errors": 0,
+      "mean_absolute_repeat_gap": 0.0
+    },
+    "controls": {
+      "sessions": 30,
+      "coverage@20": 0.7333333333333333,
+      "recall@20": 0.3082161357161357,
+      "median_seconds": 12.025173218000418,
+      "mean_output_tokens": 552.9333333333333,
+      "mean_input_tokens": 89107.5,
+      "invoked": 1,
+      "returned_hits": 1,
+      "statistics_returned": 0,
+      "weights_requested": 0,
+      "errors": 0,
+      "mean_absolute_repeat_gap": 0.022222222222222223
+    }
+  },
+  "controls_minus": {
+    "original": {
+      "mean_delta": 0.011111111111111108,
+      "bootstrap_95": [
+        0.0,
+        0.033333333333333326
+      ],
+      "questions": [
+        {
+          "topic": "angular",
+          "query_id": "77057726",
+          "delta": 0.16666666666666663
+        },
+        {
+          "topic": "angular",
+          "query_id": "78212630",
+          "delta": 0.0
+        },
+        {
+          "topic": "angular",
+          "query_id": "78523046",
+          "delta": 0.0
+        },
+        {
+          "topic": "godot",
+          "query_id": "76560345",
+          "delta": 0.0
+        },
+        {
+          "topic": "godot",
+          "query_id": "78288487",
+          "delta": 0.0
+        },
+        {
+          "topic": "godot",
+          "query_id": "78467185",
+          "delta": 0.0
+        },
+        {
+          "topic": "langchain",
+          "query_id": "75952371",
+          "delta": 0.0
+        },
+        {
+          "topic": "langchain",
+          "query_id": "78171159",
+          "delta": 0.0
+        },
+        {
+          "topic": "langchain",
+          "query_id": "78631323",
+          "delta": 0.0
+        },
+        {
+          "topic": "laravel",
+          "query_id": "76330103",
+          "delta": 0.0
+        },
+        {
+          "topic": "laravel",
+          "query_id": "78340907",
+          "delta": 0.0
+        },
+        {
+          "topic": "laravel",
+          "query_id": "78600376",
+          "delta": 0.0
+        },
+        {
+          "topic": "yolo",
+          "query_id": "75121807",
+          "delta": 0.0
+        },
+        {
+          "topic": "yolo",
+          "query_id": "77017189",
+          "delta": 0.0
+        },
+        {
+          "topic": "yolo",
+          "query_id": "78092718",
+          "delta": 0.0
+        }
+      ]
+    },
+    "free": {
+      "mean_delta": 0.01944444444444444,
+      "bootstrap_95": [
+        0.0,
+        0.04166666666666666
+      ],
+      "questions": [
+        {
+          "topic": "angular",
+          "query_id": "77057726",
+          "delta": 0.16666666666666663
+        },
+        {
+          "topic": "angular",
+          "query_id": "78212630",
+          "delta": 0.0
+        },
+        {
+          "topic": "angular",
+          "query_id": "78523046",
+          "delta": 0.0
+        },
+        {
+          "topic": "godot",
+          "query_id": "76560345",
+          "delta": 0.0
+        },
+        {
+          "topic": "godot",
+          "query_id": "78288487",
+          "delta": 0.0
+        },
+        {
+          "topic": "godot",
+          "query_id": "78467185",
+          "delta": 0.0
+        },
+        {
+          "topic": "langchain",
+          "query_id": "75952371",
+          "delta": 0.0
+        },
+        {
+          "topic": "langchain",
+          "query_id": "78171159",
+          "delta": 0.0
+        },
+        {
+          "topic": "langchain",
+          "query_id": "78631323",
+          "delta": 0.0
+        },
+        {
+          "topic": "laravel",
+          "query_id": "76330103",
+          "delta": 0.0
+        },
+        {
+          "topic": "laravel",
+          "query_id": "78340907",
+          "delta": 0.125
+        },
+        {
+          "topic": "laravel",
+          "query_id": "78600376",
+          "delta": 0.0
+        },
+        {
+          "topic": "yolo",
+          "query_id": "75121807",
+          "delta": 0.0
+        },
+        {
+          "topic": "yolo",
+          "query_id": "77017189",
+          "delta": 0.0
+        },
+        {
+          "topic": "yolo",
+          "query_id": "78092718",
+          "delta": 0.0
+        }
+      ]
+    }
+  },
+  "screening_bar_met": false
+}

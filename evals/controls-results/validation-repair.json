@@ -1,0 +1,6 @@
+{
+  "frozen_report_sha256": "fd98e7e1d35007cf8d992810c066b955261638dfed218ce21d45126b977f0803",
+  "repaired_report_sha256": "cf1f615aaa7b6ff0d1598cbf80ebc7c5a0d815e07a475fabc1fa00e0a2eb6985",
+  "reason": "Accept exactly the native rankgrep plugin and local marketplace tables in augmented config. All other frozen inputs remain exact; scoring, pairing and screening logic are unchanged.",
+  "preregistration_commit": "f8ea048e63ace6e154c51ba0fcd481f6b0e12374"
+}

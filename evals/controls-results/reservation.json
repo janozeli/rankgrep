@@ -1,0 +1,213 @@
+{
+  "seed": "corpus-controls-v1",
+  "arms": [
+    "free",
+    "original",
+    "controls"
+  ],
+  "repetitions": 2,
+  "selection": {
+    "angular": [
+      "78523046",
+      "78212630",
+      "77057726"
+    ],
+    "godot": [
+      "78288487",
+      "76560345",
+      "78467185"
+    ],
+    "langchain": [
+      "75952371",
+      "78171159",
+      "78631323"
+    ],
+    "laravel": [
+      "76330103",
+      "78340907",
+      "78600376"
+    ],
+    "yolo": [
+      "78092718",
+      "77017189",
+      "75121807"
+    ]
+  },
+  "exclusions": {
+    "angular": [
+      "77222873",
+      "77502134",
+      "77680044",
+      "77758875",
+      "77853592",
+      "77987521",
+      "78008054",
+      "78026851",
+      "78234808",
+      "78363676",
+      "78505089",
+      "78574123"
+    ],
+    "godot": [
+      "76925739",
+      "76974491",
+      "77026156",
+      "77082664",
+      "77149652",
+      "77219006",
+      "77320255",
+      "77667972",
+      "77876948",
+      "78102746",
+      "78177286",
+      "78360682"
+    ],
+    "langchain": [
+      "75864073",
+      "75927945",
+      "76174236",
+      "76240871",
+      "76400798",
+      "76603417",
+      "76716798",
+      "77410975",
+      "77561864",
+      "77759618",
+      "78366661",
+      "78599128"
+    ],
+    "laravel": [
+      "76083286",
+      "76210394",
+      "76823724",
+      "76905048",
+      "76996845",
+      "77394088",
+      "77833768",
+      "77936065",
+      "77969870",
+      "78279024"
+    ],
+    "yolo": [
+      "76213454",
+      "76358590",
+      "76525861",
+      "76551510",
+      "76768972",
+      "76831639",
+      "77623946",
+      "78328673",
+      "78417893",
+      "78463897"
+    ]
+  },
+  "prompts": {
+    "angular": {
+      "78523046": "600e4f90b9cb28fb2ca0025d693f64122e92d3d59763e8e72c93bd49c42d7a69",
+      "78212630": "2cad5ec5b48e02fb0f0bcc847b940d3b629f1a744fa7fde0b15bb3559947835e",
+      "77057726": "fcb5e0700a3f3c627f3d1800199c5e3c6efaea0ebe466182624fdd246e430abb"
+    },
+    "godot": {
+      "78288487": "76e0539cc67195df4332695133b356ba0e94bc07aca489ec3f4dc3bee1f668ff",
+      "76560345": "f96207be6221ab4478081b77bba16f10bfb7545a251da566888941dd707da3bd",
+      "78467185": "d5a778fb88893590786ab1b26e5549e2b9100009293e155726854101da765bd2"
+    },
+    "langchain": {
+      "75952371": "c8793574792ffcf7785fafeb11f242ddee5b8eadc718171a03e6d5b0868f6416",
+      "78171159": "b0718c68e48fd4425bd75d18435bfd267426b69cd1c9632d21c4300db2ae104a",
+      "78631323": "a549cdd4412158f46384e9cb1cad0d6d53186b226b1ddfe61bc106d7e44e1ee9"
+    },
+    "laravel": {
+      "76330103": "55eae775a176eccf0e4d1be8b6f5510caedf216b75faa01c19f463ef84b06b48",
+      "78340907": "488c3bd3eff394e7e7c0c665f45d2610bce31ab12c3ba5a91929f26582a2e95b",
+      "78600376": "cca5b7d21db33a3bfa6b3f9ed7b3b85e400c5996645d4ad0f94710aec1dff57a"
+    },
+    "yolo": {
+      "78092718": "eb02f110acca4f745363bfd46ca7878c257ed1349c587e906aa67dd3536815fa",
+      "77017189": "92ad8d04b85512098c2f7a35d34bc174367c18cc9a0888a7771a86ede34167ba",
+      "75121807": "191fa698fa6ec4be7d7af7a4d0a4036e1b36cdbcf9928b75c6db2906e0eebdde"
+    }
+  },
+  "sources": {
+    "angular": [
+      {
+        "topic": "angular",
+        "kind": "queries",
+        "url": "https://huggingface.co/datasets/freshstack/queries-oct-2024/resolve/023ac3a14caf9d6ebb13d01adcfb8fa05e5a9630/angular/test-00000-of-00001.parquet",
+        "sha256": "1b423058621c170b6051b956106eb1a825b4b966e8e04db01a998f923138ec9c",
+        "bytes": 361229
+      },
+      {
+        "topic": "angular",
+        "kind": "corpus",
+        "url": "https://huggingface.co/datasets/freshstack/corpus-oct-2024/resolve/069f66dc323e163b48b10d08408d282733d4393b/angular/train-00000-of-00001.parquet",
+        "sha256": "d0eacace62e67c6880f114f75554e7ae6b362062935bc8a54f03a9113f3d5879",
+        "bytes": 71892184
+      }
+    ],
+    "godot": [
+      {
+        "topic": "godot",
+        "kind": "queries",
+        "url": "https://huggingface.co/datasets/freshstack/queries-oct-2024/resolve/023ac3a14caf9d6ebb13d01adcfb8fa05e5a9630/godot/test-00000-of-00001.parquet",
+        "sha256": "04bda2c8693969729c28e77b675837692f915f459a1848e6337a1801707f1e38",
+        "bytes": 291414
+      },
+      {
+        "topic": "godot",
+        "kind": "corpus",
+        "url": "https://huggingface.co/datasets/freshstack/corpus-oct-2024/resolve/069f66dc323e163b48b10d08408d282733d4393b/godot/train-00000-of-00001.parquet",
+        "sha256": "2e3f700c033c3f5dc6cdc4dd05c7e402baca1b7c4f9ed87a274ce73f4b6ffa41",
+        "bytes": 33422376
+      }
+    ],
+    "langchain": [
+      {
+        "topic": "langchain",
+        "kind": "queries",
+        "url": "https://huggingface.co/datasets/freshstack/queries-oct-2024/resolve/023ac3a14caf9d6ebb13d01adcfb8fa05e5a9630/langchain/test-00000-of-00001.parquet",
+        "sha256": "319effb837de2f3cd8c6bda5d07a406db44ae2486f5239a0f145ca3eef71ac45",
+        "bytes": 661304
+      },
+      {
+        "topic": "langchain",
+        "kind": "corpus",
+        "url": "https://huggingface.co/datasets/freshstack/corpus-oct-2024/resolve/069f66dc323e163b48b10d08408d282733d4393b/langchain/train-00000-of-00001.parquet",
+        "sha256": "f1e63bf897f30062704cd77b22a4c4961ea74824c0511c17e20098f4f203fa52",
+        "bytes": 70930374
+      }
+    ],
+    "laravel": [
+      {
+        "topic": "laravel",
+        "kind": "queries",
+        "url": "https://huggingface.co/datasets/freshstack/queries-oct-2024/resolve/023ac3a14caf9d6ebb13d01adcfb8fa05e5a9630/laravel/test-00000-of-00001.parquet",
+        "sha256": "ef0d1426c5613ea6ab21a6e8d35419d5fa5be2cef2e1774b5834027e1696751f",
+        "bytes": 427551
+      },
+      {
+        "topic": "laravel",
+        "kind": "corpus",
+        "url": "https://huggingface.co/datasets/freshstack/corpus-oct-2024/resolve/069f66dc323e163b48b10d08408d282733d4393b/laravel/train-00000-of-00001.parquet",
+        "sha256": "3d7c39368af7ccf23c41d69bc95d0b942060a4f140a38664bede593a51375a01",
+        "bytes": 39525810
+      }
+    ],
+    "yolo": [
+      {
+        "topic": "yolo",
+        "kind": "queries",
+        "url": "https://huggingface.co/datasets/freshstack/queries-oct-2024/resolve/023ac3a14caf9d6ebb13d01adcfb8fa05e5a9630/yolo/test-00000-of-00001.parquet",
+        "sha256": "87b4b2e3fcbec3ca7f5a64d2b7fb404480689288f4d82b5f8b15d07b7050c49f",
+        "bytes": 147711
+      },
+      {
+        "topic": "yolo",
+        "kind": "corpus",
+        "url": "https://huggingface.co/datasets/freshstack/corpus-oct-2024/resolve/069f66dc323e163b48b10d08408d282733d4393b/yolo/train-00000-of-00001.parquet",
+        "sha256": "bb59408c51b3bddc527ae5de46858955d129b9157adb1100e6a7b50c560c76da",
+        "bytes": 42140310
+      }
+    ]
+  }
+}

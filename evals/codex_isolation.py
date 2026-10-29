@@ -33,8 +33,10 @@ def installation(tool):
 
 
 class Isolated:
-    def __init__(self, root, corpus, plugin=None, cache=None):
+    def __init__(self, root, corpus, plugin=None, cache=None, *, model=MODEL):
         self.root, self.corpus, self.plugin = Path(root), Path(corpus), plugin
+        self.model = model
+        self.config = CONFIG.replace(f'model = "{MODEL}"', f'model = "{model}"')
         self.cache = cache
         self.frozen = False
         self.home = self.root / 'home'
@@ -78,7 +80,7 @@ class Isolated:
                  'LANG': 'C.UTF-8'})
 
     def prepare(self):
-        (self.home / '.codex/config.toml').write_text(CONFIG)
+        (self.home / '.codex/config.toml').write_text(self.config)
         if self.plugin:
             for args in [['plugin', 'marketplace', 'add', '/plugin', '--json'],
                          ['plugin', 'add', 'rankgrep@rankgrep', '--json']]:
@@ -132,7 +134,7 @@ class Isolated:
             raise ValueError(f'expected one fresh session, got {len(rollouts)}')
         raw = [json.loads(l) for l in rollouts[0].read_text().splitlines()]
         contexts = [e['payload'] for e in raw if e['type'] == 'turn_context']
-        if not contexts or any(c['model'] != MODEL or c['effort'] != 'medium' for c in contexts):
+        if not contexts or any(c['model'] != self.model or c['effort'] != 'medium' for c in contexts):
             raise ValueError('model/effort mismatch')
         self.assert_local_plugins()
         # Inspect actual session messages too: remote synchronization can finish after preview.
