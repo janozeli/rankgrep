@@ -3,6 +3,7 @@ The only module that imports bm25s."""
 
 import enum
 import json
+import math
 import re
 import time
 from dataclasses import dataclass
@@ -58,6 +59,20 @@ class Result:
 
     hits: tuple[Hit, ...]
     unknown: tuple[str, ...]
+
+
+@dataclass(frozen=True, slots=True)
+class TermStats:
+    """Frequency in indexed sections, including inherited heading terms.
+
+    An absent term has no usable IDF contribution, represented by None.
+    """
+
+    term: str
+    df: int
+    section_count: int
+    fraction: float
+    idf: float | None
 
 
 @dataclass(frozen=True, slots=True)
@@ -149,6 +164,22 @@ class Index:
                 files[row.file] = read_lines(self.files[row.file]) or []
             hits.append(_hit(self.files[row.file], files[row.file], row, float(scores[doc]), query))
         return Result(tuple(hits), unknown)
+
+    def stats(self, query: Query) -> tuple[TermStats, ...]:
+        """Read document frequencies from the pinned Lucene posting lists.
+
+        Each posting is one section containing the term, regardless of how
+        often the term occurs there. No source passages need to be read.
+        """
+        count = len(self.chunks)
+        indptr = self._bm25.scores["indptr"]
+        rows = []
+        for term in query.terms:
+            token = self._bm25.vocab_dict.get(term)
+            df = int(indptr[token + 1] - indptr[token]) if token is not None else 0
+            idf = math.log1p((count - df + 0.5) / (df + 0.5)) if df else None
+            rows.append(TermStats(term, df, count, df / count, idf))
+        return tuple(rows)
 
 
 def _hit(path: Path, lines: list[str], row: Chunk, score: float, query: Query) -> Hit:

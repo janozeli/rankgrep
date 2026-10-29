@@ -33,6 +33,14 @@ The first search on a set of paths builds an index, which takes about 1.5 second
 
 ## Choosing what to search
 
+`--stats` is an optional corpus vocabulary lookup:
+`${CLAUDE_PLUGIN_ROOT}/bin/rankgrep --stats "hook matcher PreToolUse" docs/claude-code`
+It prints one JSON line per normalized term: `term`, `df` (sections containing it),
+`section_count`, `fraction` (`df / section_count`), and `idf` (Lucene IDF, or `null`
+when absent). Counts include inherited heading words. It returns no passages,
+reuses the search index, and does not accept `-k`. Rarity is not relevance;
+statistics do not automatically filter terms or change the query.
+
 - Name the folders or files after the query. Several doc sets can go in one search, and each hit's path shows which set it came from:
   `${CLAUDE_PLUGIN_ROOT}/bin/rankgrep "retry backoff 429" docs/claude-code docs/library`
 - Pass the same paths each time, so the index is reused.
@@ -44,7 +52,7 @@ The first search on a set of paths builds an index, which takes about 1.5 second
 
 | Code | Meaning | Next step |
 | --- | --- | --- |
-| 0 | Hits printed | Read the best range |
+| 0 | Hits or statistics printed | Read hits or inspect term frequencies |
 | 1 | No section contains any query word | Search with other words |
 | 2 | The command can't run as written | Do what the one-line stderr message says |
 | 3 | Bug in rankgrep | Use rg instead |
