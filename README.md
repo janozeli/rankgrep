@@ -192,6 +192,14 @@ uv run evals/harness.py all
 
 `all` downloads the texts, runs the 150 agent runs and 50 judge calls, and writes `evals/results/`. It reuses the committed `questions.jsonl`. Every `claude -p` call is cached under `--work`, which defaults to `notes-desk` in the system temp folder, so a rerun repeats only what is missing. The committed run cost $5.18 at list prices, plus $0.59 for the 14 calls that wrote the questions. The agents' folders hold only the two texts, and no path an agent sees mentions the measurement.
 
+## Harder documentation lookups
+
+A second suite searches a mixed library of Python 3.14 and PostgreSQL 18 documentation: 914 files, 24.35 MB, with pinned source versions. It asks 24 questions across four axes: direct lookup, vague symptoms, multiple constraints, and synthesis across different files. Every axis has three Python and three PostgreSQL questions. Agents get the library folder, not the target file.
+
+Both search arms answered all 24 questions correctly. Under the citation rules, `rg` supported 22 answers and rankgrep 21. All five citation failures involved ranges exceeding the requested 40-line maximum; they are not evidence that the search failed. Answering calls cost $0.84 with `rg` and $1.28 with rankgrep. This larger, less literal suite still does not establish a rankgrep advantage.
+
+This suite requires citations supporting every part of an answer. The questions, references, protocol, per-axis results, and reproduction steps are in [evals/HARD.md](evals/HARD.md). Run it with `uv run evals/hard.py all`. The original experiment above remains unchanged.
+
 ## Limitations
 
 - **No stemming.** "matcher" doesn't match "matches". On the Claude Code docs, `PreToolUse hook matcher` ranks the hooks reference's PreToolUse section 24th, because that section says "Matches". `PreToolUse hooks reference` ranks it first. The skill tells the agent to add word variants and the words it sees in section names.

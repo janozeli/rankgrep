@@ -203,6 +203,11 @@ def fetch(work: Work) -> None:
             if not (copy.exists() and _sha256(copy) == corpus.sha256):
                 copy.parent.mkdir(parents=True, exist_ok=True)
                 shutil.copyfile(target, copy)
+    prepare(work, [target for c in CORPORA.values() for target in (c.path, str(Path(c.path).parent))])
+
+
+def prepare(work: Work, targets: list[str]) -> None:
+    """Install the pinned plugin, guard and warm indexes for a prepared corpus."""
     if not work.plugin.exists():
         commit = _git("rev-parse", "HEAD").strip()
         archive = subprocess.run(["git", "-C", str(REPO), "archive", "--format=tar", commit, *PLUGIN_FILES],
@@ -215,13 +220,12 @@ def fetch(work: Work) -> None:
     shutil.copyfile(REPO / "evals" / "guard.py", work.guard)
     work.private.mkdir(parents=True, exist_ok=True)
     project = work.project(ARMS["rankgrep"])
-    for corpus in CORPORA.values():
-        for target in (corpus.path, str(Path(corpus.path).parent)):
-            warm = subprocess.run([str(work.launcher), "-k", "1", "warm", target], cwd=project, env=_agent_env(work),
-                                  capture_output=True, text=True)
-            if warm.returncode not in (0, 1):
-                sys.exit(f"rankgrep failed on {target}: {warm.stderr.strip()}")
-    print(f"fetched {len(CORPORA)} corpora into {work.root}, plugin at commit {_plugin_commit(work)[:12]}")
+    for target in targets:
+        warm = subprocess.run([str(work.launcher), "-k", "1", "warm", target], cwd=project, env=_agent_env(work),
+                              capture_output=True, text=True)
+        if warm.returncode not in (0, 1):
+            sys.exit(f"rankgrep failed on {target}: {warm.stderr.strip()}")
+    print(f"prepared {work.root}, plugin at commit {_plugin_commit(work)[:12]}")
 
 
 def write_questions(work: Work, jobs: int) -> None:
