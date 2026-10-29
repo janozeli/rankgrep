@@ -108,3 +108,20 @@ def test_plugin_and_config_mounts_are_frozen_after_setup(runtime):
         source = str(runtime.home / '.codex' / name)
         index = command.index(source)
         assert command[index - 1] == '--ro-bind'
+
+
+def test_explicit_model_preserves_isolation_and_checks_actual_execution(runtime, tmp_path, monkeypatch):
+    terra = ci.Isolated(tmp_path / 'terra', runtime.corpus, model='gpt-6.1-terra')
+    assert terra.config.replace('gpt-6.1-terra', ci.MODEL) == ci.CONFIG
+    monkeypatch.setattr(terra, 'invoke', lambda *a, **kw: SimpleNamespace(returncode=0, stdout='[]', stderr=''))
+    terra.prepare()
+    assert (terra.home / '.codex/config.toml').read_text() == terra.config
+    rollout = terra.home / '.codex/sessions/rollout.jsonl'
+    rollout.parent.mkdir()
+    payload = {'type': 'turn_context', 'payload': {'model': 'gpt-6.1-terra', 'effort': 'medium'}}
+    rollout.write_text(json.dumps(payload) + '\n')
+    assert terra.execute('test')[0] == 0
+    payload['payload']['model'] = ci.MODEL
+    rollout.write_text(json.dumps(payload) + '\n')
+    with pytest.raises(ValueError, match='model/effort mismatch'):
+        terra.execute('test')
