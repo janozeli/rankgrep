@@ -129,7 +129,11 @@ Tokenizing in Python is most of the build. Python startup plus importing bm25s a
 
 [The FreshStack benchmark](evals/FRESHSTACK.md) compares a free agent with the same agent given the optional rankgrep plugin: the normal tools, shell commands and pipelines remain available in both. It uses real developer questions and 271,816 documentation/code chunks across Angular, Godot, LangChain, Laravel and YOLO. The runner supports all 672 questions; the saved run uses a fixed sample of 50 paired questions.
 
-In those 100 calls, the augmented agent never invoked rankgrep despite having it available in all 50 sessions. This measures lack of adoption in that run; it does not establish a benefit or disadvantage from executing rankgrep. [The results and limitations](evals/FRESHSTACK.md#observed-run) explain the evidence scores, path-reporting errors and why the raw score gap cannot rank the search engines.
+In those 100 Claude calls, the augmented agent never invoked rankgrep despite having it available in all 50 sessions. This measures lack of adoption in that run; it does not establish a benefit or disadvantage from executing rankgrep. [The results and limitations](evals/FRESHSTACK.md#observed-run) explain the evidence scores, path-reporting errors and why the raw score gap cannot rank the search engines.
+
+A separate [isolated Codex replication](evals/CODEX.md) repeats the same questions, prompt, plugin and scoring with GPT-6 Astra, medium reasoning and requested priority service. It invokes rankgrep in 35 of 50 augmented sessions, with structured hits in all 35. Evidence coverage is 72.38% for the free agent and 71.68% with rankgrep available. This does not establish a quality advantage. The Codex harness has different native tools and budget controls from Claude, so the adoption difference cannot be attributed to model weights alone. Fresh filesystem namespaces exclude personal plugins, skills, configuration and memories; actual session catalogs and plugin files are checked after execution.
+
+[Short description experiments](evals/adoption-results/summary.md) then compare the original catalog description with three factual alternatives on six new paired questions. They change only the description, preserve the skill body and free tool choice, and report successful usage alongside evidence quality. The small sample is exploratory; the production description remains unchanged.
 
 ## Earlier isolated-tool experiments
 

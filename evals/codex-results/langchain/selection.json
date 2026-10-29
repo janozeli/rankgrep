@@ -1,0 +1,55 @@
+{
+  "model": "gpt-6-astra",
+  "effort": "medium",
+  "service_tier_requested": "priority",
+  "selection": [
+    "76240871",
+    "76400798",
+    "76174236",
+    "78599128",
+    "77410975",
+    "76603417",
+    "78366661",
+    "77759618",
+    "75864073",
+    "77561864"
+  ],
+  "plugin_commit": "31379def63c8eb4a21f0be3ecf5f1e2e52ff8a00",
+  "sources": [
+    {
+      "topic": "langchain",
+      "kind": "queries",
+      "url": "https://huggingface.co/datasets/freshstack/queries-oct-2024/resolve/023ac3a14caf9d6ebb13d01adcfb8fa05e5a9630/langchain/test-00000-of-00001.parquet",
+      "sha256": "319effb837de2f3cd8c6bda5d07a406db44ae2486f5239a0f145ca3eef71ac45",
+      "bytes": 661304
+    },
+    {
+      "topic": "langchain",
+      "kind": "corpus",
+      "url": "https://huggingface.co/datasets/freshstack/corpus-oct-2024/resolve/069f66dc323e163b48b10d08408d282733d4393b/langchain/train-00000-of-00001.parquet",
+      "sha256": "f1e63bf897f30062704cd77b22a4c4961ea74824c0511c17e20098f4f203fa52",
+      "bytes": 70930374
+    }
+  ],
+  "prompt_sha256": {
+    "76240871": "0483c5903e6e533e207631647aeb1db59ff8345e8c2b489ab20a417eaf7415ef",
+    "76400798": "58bc957107941984f5f4dcc85803cfcdf8cebe86ff8947a4274b26401f438416",
+    "76174236": "5a29527ca666837cc873c41b36f6f1baf9ae82d38f93e6ad3d714ce39f034a00",
+    "78599128": "c6edf94b556b400fa44b9a13d0244ecd28038406c96679fa7f6e3e3479bf62b4",
+    "77410975": "e26102e636a50cd6e9f5f30f5e1255751187b53ae61c30e75ab1f8ce6f469c0e",
+    "76603417": "c1cb8657451e845e12017294c1eeeb02e6506d949b9ad43298af081d54cec934",
+    "78366661": "4728a7eac951a032d95e2f9c328fc82f1d9231c756a47e46f5aef673c9096645",
+    "77759618": "46d15ae26cb9e736bd54cb40fe0902f20b8a94cd0a205e62def2b316881313af",
+    "75864073": "ca3cc43659dbe7e0892eebeaf34525da7cedf52d73cee6c323e7245f92451e16",
+    "77561864": "80d68eb1721b6172aed4ad5692041250dea373acd268a0cfa2774f43e24a43fd"
+  },
+  "config": "model = \"gpt-6-astra\"\nmodel_reasoning_effort = \"medium\"\nservice_tier = \"priority\"\nproject_doc_max_bytes = 0\n[plugins._default]\nenabled = false\n[skills.bundled]\nenabled = false\n[cloud.skills]\nenabled = false\n[features]\napps = false\nremote_plugin = false\nrecommended_plugins = false\nenable_mcp_apps = false\nmemories = false\n[memories]\ngenerate_memories = false\nuse_memories = false\n",
+  "timeout_seconds": 1200,
+  "warm_cache": true,
+  "runner_sha256": {
+    "codex_freshstack.py": "7b1f089d9029edda847480fe1e24bfd79759bc01ed92573bc995e31ce65468b2",
+    "codex_isolation.py": "0a400645149314ba175458f4dcd30e5ed9424bbb083017f8efb46589af1a9684"
+  },
+  "budget_note": "Codex CLI has no equivalent of Claude max-turns/max-budget-usd; not enforced or compared.",
+  "codex": "codex-cli 0.165.0"
+}

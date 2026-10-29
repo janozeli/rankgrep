@@ -1,0 +1,61 @@
+{
+  "purpose": "Separate isolation probes, not benchmark questions",
+  "arms": {
+    "free": {
+      "observed_model_context": [
+        {
+          "model": "gpt-6-astra",
+          "effort": "medium"
+        }
+      ],
+      "service_tier_requested": "priority",
+      "native_tools_observed": [
+        "apply_patch",
+        "clock__curr_time",
+        "create_goal",
+        "exec_command",
+        "get_goal",
+        "image_gen__imagegen",
+        "list_mcp_resource_templates",
+        "list_mcp_resources",
+        "read_mcp_resource",
+        "update_goal",
+        "view_image",
+        "web__run",
+        "write_stdin"
+      ],
+      "plugin_namespaces_after_execution": [],
+      "prompt_context_sha256": "07f7844acf682b5042c2802b89198711c9b694b999f302ecdd4f1773dabad300",
+      "stdout_sha256": "f4b6ef81f1d06cff3a0b06adedac133b0105e69246472e188031e16451adbf02"
+    },
+    "free+rankgrep": {
+      "observed_model_context": [
+        {
+          "model": "gpt-6-astra",
+          "effort": "medium"
+        }
+      ],
+      "service_tier_requested": "priority",
+      "native_tools_observed": [
+        "apply_patch",
+        "clock__curr_time",
+        "create_goal",
+        "exec_command",
+        "get_goal",
+        "image_gen__imagegen",
+        "list_mcp_resource_templates",
+        "list_mcp_resources",
+        "read_mcp_resource",
+        "update_goal",
+        "view_image",
+        "web__run",
+        "write_stdin"
+      ],
+      "plugin_namespaces_after_execution": [
+        "rankgrep"
+      ],
+      "prompt_context_sha256": "a6720a57c1e9137aa2706fa89b34f9c6946bd535e23bb1d225574b7278926f95",
+      "stdout_sha256": "62006041d6b62c7c4efd48d31f135cb527891279590edf23991aa6daf23476ab"
+    }
+  }
+}
