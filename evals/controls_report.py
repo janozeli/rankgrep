@@ -1,6 +1,7 @@
 """Recompute frozen scores and paired question-level estimates; no model calls."""
 import json
 import statistics
+import tomllib
 
 import numpy as np
 
@@ -9,6 +10,16 @@ import controls_audit
 import codex_audit
 import freshstack as f
 import freshstack_data as d
+
+FROZEN_REPORT_SHA = 'fd98e7e1d35007cf8d992810c066b955261638dfed218ce21d45126b977f0803'
+
+
+def validate_config(actual, base, augmented):
+    expected = tomllib.loads(base)
+    if augmented:
+        expected['plugins']['rankgrep@rankgrep'] = {'enabled': True}
+        expected['marketplaces'] = {'rankgrep': {'source_type': 'local', 'source': '/plugin'}}
+    assert tomllib.loads(actual) == expected, 'unexpected native configuration'
 
 
 def paired_deltas(rows, treatment, comparator):
@@ -34,7 +45,14 @@ def interval(deltas):
 
 
 def validate():
-    manifest, variants = c.freeze()
+    manifest = json.loads((c.OUT / 'manifest.json').read_text())
+    current = c.expected_manifest(c.plugins())
+    # The frozen reporter compared base config bytes with native augmented
+    # config, rejecting the two expected plugin-installation tables. This
+    # post-run repair changes validation only; every execution input stays pinned.
+    assert manifest['runner_sha256']['controls_report.py'] == FROZEN_REPORT_SHA
+    current['runner_sha256']['controls_report.py'] = FROZEN_REPORT_SHA
+    assert current == manifest, 'frozen execution inputs changed'
     rows, tool_hashes = [], set()
     for topic in d.TOPICS:
         corpus, questions = c.inputs(topic, manifest)
@@ -69,7 +87,7 @@ def validate():
                        for event in raw if event['type'] == 'response_item'
                        and event['payload'].get('role') == 'user'
                        for block in event['payload'].get('content', [])), 'actual prompt differs'
-            assert (root / 'home/.codex/config.toml').read_text() == manifest['config']
+            validate_config((root / 'home/.codex/config.toml').read_text(), manifest['config'], row['arm'] != 'free')
             entries = []
             for event in raw:
                 payload = event.get('payload', {})
@@ -101,6 +119,13 @@ def validate():
 
 def report():
     rows = validate()
+    (c.OUT / 'validation-repair.json').write_text(json.dumps({
+        'frozen_report_sha256': FROZEN_REPORT_SHA,
+        'repaired_report_sha256': d.sha(c.OUT.parent / 'controls_report.py'),
+        'reason': 'Accept exactly the native rankgrep plugin and local marketplace tables in augmented config. '
+                  'All other frozen inputs remain exact; scoring, pairing and screening logic are unchanged.',
+        'preregistration_commit': 'f8ea048e63ace6e154c51ba0fcd481f6b0e12374',
+    }, indent=2) + '\n')
     summary = {}
     for arm in c.ARMS:
         rs = [r for r in rows if r['arm'] == arm]

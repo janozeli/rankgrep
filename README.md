@@ -238,6 +238,12 @@ uv run evals/harness.py all
 
 `all` downloads the texts, runs the 150 agent runs and 50 judge calls, and writes `evals/results/`. It reuses the committed `questions.jsonl`. Every `claude -p` call is cached under `--work`, which defaults to `notes-desk` in the system temp folder, so a rerun repeats only what is missing. The committed run cost $5.18 at list prices, plus $0.59 for the 14 calls that wrote the questions. The agents' folders hold only the two texts, and no path an agent sees mentions the measurement.
 
+## Optional corpus controls with Terra
+
+A [preregistered three-arm experiment](evals/CONTROLS.md) compares a free Codex Terra agent, the original optional plugin, and the plugin with corpus statistics and explicit weights. Fifteen new FreshStack questions across five full corpora, with two independent repeats per condition, produced 90 sessions. Evidence coverage was 71.39%, 72.22%, and 73.33%, respectively. The controls-minus-original difference was +1.11 percentage points, with a descriptive paired interval of [0.00, +3.33] pp, below the predeclared screening bar.
+
+Rankgrep was used in only one of 30 sessions in each augmented arm, and none used statistics or weights. This does not demonstrate a benefit from making the controls available or estimate their effectiveness when used. The [results and trace analysis](evals/controls-results/FINDINGS.md) disclose the small sample, pooled-label limits and post-run configuration-validator repair; no execution inputs or scores were changed.
+
 ## Harder documentation lookups
 
 A second suite searches a mixed library of Python 3.14 and PostgreSQL 18 documentation: 914 files, 24.35 MB, with pinned source versions. It asks 24 questions across four axes: direct lookup, vague symptoms, multiple constraints, and synthesis across different files. Every axis has three Python and three PostgreSQL questions. Agents get the library folder, not the target file.

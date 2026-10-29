@@ -1,0 +1,29 @@
+{
+  "sessions": 90,
+  "native_shell_events": 356,
+  "nested_tools": {
+    "exec_command": 355,
+    "write_stdin": 3
+  },
+  "shell_starts": {
+    "ls": 96,
+    "rg": 231,
+    "cat": 16,
+    "/home/janozeli/.codex/plugins/cache/rankgrep/rankgrep/0.1.0/bin/rankgrep": 4,
+    "find": 2,
+    "sed": 6,
+    "head": 1
+  },
+  "input_scan_pattern": "freshstack|nugget|qrels|huggingface|pip install|uv (add|pip|tool)|curl|wget|https?://|--stats|--weight",
+  "input_scan_findings": [],
+  "baseline_rankgrep_mentions": [],
+  "invalid_submitted_paths": 0,
+  "runs_sha256": {
+    "angular/runs.jsonl": "56cadc26931dc5ce6e1708232b92374018a754382c6f9c21d385721198fc8fb6",
+    "godot/runs.jsonl": "f4647a6aa1a16cad86d2b96cc421b4f2a4bf94c7d1610fbfbe1a5f88e39c82a8",
+    "langchain/runs.jsonl": "428a3f6ceb45244a64d2b6fda12d7a6b23173e47b052ee4231a965b8b8161bf5",
+    "laravel/runs.jsonl": "c5f0829a07d4b59d2cb42b44f88b38345e282e7651eb8a648c29dd511c35383e",
+    "yolo/runs.jsonl": "2bd038becdf40a2100f4f624190e89a103e2154d3dcd67036cdf31b0bcab66fa"
+  },
+  "interpretation": "Post-run diagnostic. Direct commands and nested tool calls were inspected; controls were never requested. No scoring or selection changes. Pattern scans alone are not a proof against arbitrary obfuscation."
+}

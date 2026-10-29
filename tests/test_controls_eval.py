@@ -52,3 +52,16 @@ def test_repeats_are_averaged_before_question_level_pairing():
     rows[-1]['repeat'] = 0
     with pytest.raises(AssertionError):
         report.paired_deltas(rows, 'controls', 'original')
+
+
+def test_report_accepts_only_expected_native_plugin_configuration():
+    base = controls.ci.CONFIG.replace(controls.ci.MODEL, controls.MODEL)
+    additions = '\n[plugins."rankgrep@rankgrep"]\nenabled = true\n' \
+                '[marketplaces.rankgrep]\nsource_type = "local"\nsource = "/plugin"\n'
+    report.validate_config(base, base, False)
+    report.validate_config(base + additions, base, True)
+    for actual, augmented in [(base, True), (base + additions, False),
+                              (base + additions.replace('/plugin', '/host'), True),
+                              (base + additions + '[plugins.unexpected]\nenabled=true\n', True)]:
+        with pytest.raises(AssertionError, match='unexpected native configuration'):
+            report.validate_config(actual, base, augmented)
