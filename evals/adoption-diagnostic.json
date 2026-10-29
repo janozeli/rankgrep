@@ -1,0 +1,31 @@
+{
+  "excluded_calls": 24,
+  "reason": "Shared runtime cache produced a missing bm25s.utils dependency during one native launcher invocation. Entire description round excluded; same selections and descriptions rerun with private per-session caches and native-launcher warmups.",
+  "failed_case": {
+    "topic": "godot",
+    "query_id": "77026156",
+    "arm": "original",
+    "run_key": "f7f08f4abfa3ec8df7a35341dc6e6797df21644bf441b3a7f5a48c46e694144b",
+    "audit": {
+      "invoked": true,
+      "returned_hits": false,
+      "launches": [
+        {
+          "command": "/bin/bash -lc \"/home/janozeli/.codex/plugins/cache/rankgrep/rankgrep/0.1.0/bin/rankgrep 'static signals _static_init' docs -k 10\"",
+          "exit_code": 1,
+          "hits": 0
+        }
+      ],
+      "stdout_sha256": "3b5a86cfcff90cb2d57fefe6e4a0ea29cbe3792c87ff4a82144d4d930863fe86"
+    }
+  },
+  "excluded_artifact_sha256": {
+    "summary.md": "2eba329af2f934e933ec832e5053e3d3a199e7b08e09525d24b98c7a59d94121",
+    "langchain/selection.json": "647a041382da4c77b2af20c4ffdcb85c60991d7f132f65d9eb438015fdc660e6",
+    "langchain/runs.jsonl": "3ca8684b11d22802577fd63fbcfccdb3ae1f4a285ccc94af0e033b564256a0be",
+    "angular/selection.json": "11f944094dd00a44fec55dca3508196f0c68844be368d059145fcc5bd0067619",
+    "angular/runs.jsonl": "8089eba7fa0e4cc9b1a349ad551f2d42d40b1258839a614fca07acd1489658ad",
+    "godot/selection.json": "6d44bb520331d0938086bc5a98d7e3e1c2f46b979f3b4d7ecd1e3d172b7b03ab",
+    "godot/runs.jsonl": "ae1f57eea2714392a2a14bf89c00ddbe0c9c0a413044908b9e54ac6537d60a9d"
+  }
+}

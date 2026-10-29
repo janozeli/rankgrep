@@ -1,0 +1,55 @@
+{
+  "model": "gpt-6-astra",
+  "effort": "medium",
+  "service_tier_requested": "priority",
+  "selection": [
+    "78279024",
+    "76823724",
+    "77936065",
+    "77394088",
+    "76905048",
+    "77833768",
+    "76083286",
+    "77969870",
+    "76210394",
+    "76996845"
+  ],
+  "plugin_commit": "31379def63c8eb4a21f0be3ecf5f1e2e52ff8a00",
+  "sources": [
+    {
+      "topic": "laravel",
+      "kind": "queries",
+      "url": "https://huggingface.co/datasets/freshstack/queries-oct-2024/resolve/023ac3a14caf9d6ebb13d01adcfb8fa05e5a9630/laravel/test-00000-of-00001.parquet",
+      "sha256": "ef0d1426c5613ea6ab21a6e8d35419d5fa5be2cef2e1774b5834027e1696751f",
+      "bytes": 427551
+    },
+    {
+      "topic": "laravel",
+      "kind": "corpus",
+      "url": "https://huggingface.co/datasets/freshstack/corpus-oct-2024/resolve/069f66dc323e163b48b10d08408d282733d4393b/laravel/train-00000-of-00001.parquet",
+      "sha256": "3d7c39368af7ccf23c41d69bc95d0b942060a4f140a38664bede593a51375a01",
+      "bytes": 39525810
+    }
+  ],
+  "prompt_sha256": {
+    "78279024": "17a55ca0650edb19f7626b13985b9175220f130783a068bbd23fda06bf6047ca",
+    "76823724": "e9c282b49da5fcbe685b09cc6c24d2a1cc23a103434dc78303aea3f74dfa5715",
+    "77936065": "eb34c0e086ffefea0401678dc8711b295ec3a791c03f61eda85a60771a9e1048",
+    "77394088": "97c24539039b9801013a8d84507f9b0c12ddfbd35d5b49db9777a1647f3eea43",
+    "76905048": "ae66f4b9b4df1820ace25407f575f14d7d036ff5ff0aee706a25c9f0c378c75e",
+    "77833768": "0c19bb9aab7ba350b58c3415f2ee75072a9860ec3b0619ef3982a2e0121e6cc8",
+    "76083286": "8e5d6ec4ef9f47cf7b184e4d79d224f8be3293d11f8818873968fda28ad8eae8",
+    "77969870": "1fe1cf915b1bfec9cdf24d2b85a92040463881522ec27e755195464a4232f7c7",
+    "76210394": "1430042c7ca26fa5bc1772af7b298f42cc422e7f525e740fb9f03cb7ce1f8e8d",
+    "76996845": "e028b5053d9e05dd122800606eb5aac8cb70a79841d3d543f992e68c83021a2d"
+  },
+  "config": "model = \"gpt-6-astra\"\nmodel_reasoning_effort = \"medium\"\nservice_tier = \"priority\"\nproject_doc_max_bytes = 0\n[plugins._default]\nenabled = false\n[skills.bundled]\nenabled = false\n[cloud.skills]\nenabled = false\n[features]\napps = false\nremote_plugin = false\nrecommended_plugins = false\nenable_mcp_apps = false\nmemories = false\n[memories]\ngenerate_memories = false\nuse_memories = false\n",
+  "timeout_seconds": 1200,
+  "warm_cache": true,
+  "runner_sha256": {
+    "codex_freshstack.py": "7b1f089d9029edda847480fe1e24bfd79759bc01ed92573bc995e31ce65468b2",
+    "codex_isolation.py": "0a400645149314ba175458f4dcd30e5ed9424bbb083017f8efb46589af1a9684"
+  },
+  "budget_note": "Codex CLI has no equivalent of Claude max-turns/max-budget-usd; not enforced or compared.",
+  "codex": "codex-cli 0.165.0"
+}
