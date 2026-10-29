@@ -8,7 +8,7 @@ import json
 import os
 import sys
 from collections.abc import Sequence
-from dataclasses import dataclass
+from dataclasses import asdict, dataclass
 from importlib.metadata import version
 
 from rankgrep._corpus import MAX_FILE_BYTES, Corpus, MissingPaths, select
@@ -30,6 +30,7 @@ class Args:
     query: str
     paths: tuple[str, ...]
     top: int
+    stats: bool
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -67,6 +68,11 @@ def _search(argv: Sequence[str] | None) -> Exit:
         unsaved = " (not saved: no writable cache directory)" if opened.origin is Origin.BUILT_UNSAVED else ""
         _say(f"indexed {len(index.files)} files ({len(index.chunks)} sections) in {opened.seconds:.1f}s"
              f"{f', skipped {skipped}' if skipped else ''}{unsaved}")
+    if args.stats:
+        for row in opened.index.stats(query):
+            print(json.dumps(asdict(row), ensure_ascii=False, separators=(",", ":")))
+        sys.stdout.flush()
+        return Exit.OK
     result = opened.index.search(query, args.top)
     if not result.hits:
         _say(f"no matches. Not in this corpus: {', '.join(result.unknown)}. Try other words.")
@@ -109,12 +115,15 @@ def _parse(argv: Sequence[str] | None) -> Args | Exit:
         prog="rankgrep",
         description="Rank sections of local text files against keywords with BM25. "
         "Prints one JSON object per hit: path, start, end, score, section, line, text, matched.",
-        epilog="Exit codes: 0 hits printed, 1 no matches, 2 the command cannot run as written, 3 internal error.",
+        epilog="Exit codes: 0 hits or statistics printed, 1 no matches, 2 the command cannot run as written, 3 internal error.",
     )
     parser.add_argument("query", help="keywords, quoted as one argument")
     parser.add_argument("paths", nargs="*", metavar="PATH", help="files or folders to search")
-    parser.add_argument("-k", "--top", type=_top, default=DEFAULT_TOP, metavar="N",
+    output = parser.add_mutually_exclusive_group()
+    output.add_argument("-k", "--top", type=_top, default=DEFAULT_TOP, metavar="N",
                         help=f"number of hits to print (default {DEFAULT_TOP})")
+    output.add_argument("--stats", action="store_true",
+                        help="print term, df, section_count, fraction and idf as JSONL instead of hits")
     parser.add_argument("--files-from", metavar="FILE", help='read more paths from FILE, one per line ("-" for stdin)')
     parser.add_argument("--version", action="version", version=f"rankgrep {version('rankgrep')}")
     try:
@@ -133,7 +142,7 @@ def _parse(argv: Sequence[str] | None) -> Args | Exit:
     if not paths:
         _say("nothing to search. Pass folders or files after the query, or --files-from -.")
         return Exit.USAGE
-    return Args(parsed.query, tuple(paths), parsed.top)
+    return Args(parsed.query, tuple(paths), parsed.top, parsed.stats)
 
 
 def _render(hit: Hit, corpus: Corpus) -> str:

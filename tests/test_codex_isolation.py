@@ -48,7 +48,8 @@ def test_unexpected_skill_or_tool_fails_before_model_execution(runtime, monkeypa
         runtime.prepare()
 
 
-def test_real_mounts_hide_host_files_and_protect_corpus(runtime, tmp_path):
+@pytest.mark.parametrize('resolver_source', ['direct', 'resolved'])
+def test_real_mounts_hide_host_files_and_protect_corpus(runtime, tmp_path, monkeypatch, resolver_source):
     if not shutil.which('bwrap'):
         pytest.skip('Bubblewrap unavailable')
     # This check does not need credentials; replace the auth source with a blank fixture.
@@ -57,7 +58,13 @@ def test_real_mounts_hide_host_files_and_protect_corpus(runtime, tmp_path):
     (runtime.home / '.codex/plugins').mkdir()
     (runtime.home / '.codex/config.toml').write_text(ci.CONFIG)
     runtime.frozen = True
-    command = runtime.command([])[:-1]
+    # Exercise hosts whose resolver is a regular file as well as a symlink.
+    resolve = Path.resolve
+    with monkeypatch.context() as patch:
+        if resolver_source == 'direct':
+            patch.setattr(Path, 'resolve', lambda p, *a, **kw:
+                          p if p == Path('/etc/resolv.conf') else resolve(p, *a, **kw))
+        command = runtime.command([])[:-1]
     auth = str(Path.home() / '.codex/auth.json')
     command[command.index(auth)] = str(fake_auth)
     canary = tmp_path / 'host-only-secret'
@@ -66,6 +73,7 @@ def test_real_mounts_hide_host_files_and_protect_corpus(runtime, tmp_path):
 assert not Path({str(canary)!r}).exists()
 assert not Path('/plugin').exists()
 assert Path('/workspace/docs/reference.txt').read_text() == 'reference'
+assert Path('/etc/resolv.conf').read_bytes() == {Path('/etc/resolv.conf').read_bytes()!r}
 try:
     (Path.home() / '.codex/plugins/unexpected').mkdir()
 except OSError:

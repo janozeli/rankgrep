@@ -75,7 +75,7 @@ git ls-files '*.md' | rankgrep --files-from - "release checklist"
 
 ## Output
 
-stdout carries only hits, one JSON object per line, best first. Every key is always present, in this order:
+By default, stdout carries only hits, one JSON object per line, best first. Every key is always present, in this order:
 
 | Key | Type | Meaning |
 | --- | --- | --- |
@@ -89,11 +89,32 @@ stdout carries only hits, one JSON object per line, best first. Every key is alw
 
 Ties are ordered by path and line, so the same corpus and query always print the same bytes. `-k N` sets how many hits to print (default 8). Notes go to stderr, one line each, starting with `rankgrep: `.
 
+### Corpus statistics
+
+`--stats` returns one JSON object per distinct normalized query term, in query order, without returning passages:
+
+```sh
+rankgrep --stats "hook matcher PreToolUse" docs/claude-code
+rankgrep --stats "hook matcher PreToolUse" docs/claude-code | jq -r 'select(.df > 0) | .term'
+```
+
+| Key | Meaning |
+| --- | --- |
+| `term` | A term produced by the same tokenizer used for search, including identifier parts |
+| `df` | Number of indexed sections containing the term, counting each section once |
+| `section_count` | Total indexed sections in the selected corpus |
+| `fraction` | `df / section_count` |
+| `idf` | Lucene inverse document frequency: `log(1 + (section_count - df + 0.5) / (df + 0.5))`; `null` when absent |
+
+Counts include inherited heading words and use sections, not source files. Repeated occurrences within a section do not increase `df`. Absent terms have `df: 0` and `fraction: 0`; their `idf` is `null` because they cannot contribute to a search. Rarity indicates selectivity, not relevance. No automatic filtering or query expansion is applied.
+
+Statistics reuse the search index and accept the same paths and `--files-from` input. `--stats` and `-k` are mutually exclusive. A successful statistics request exits 0 even when every term is absent; empty queries and unusable corpora still exit 2.
+
 ## Exit codes
 
 | Code | Meaning | Example stderr |
 | --- | --- | --- |
-| 0 | Hits printed | `rankgrep: not in this corpus: hookz` when some words matched nothing |
+| 0 | Hits or statistics printed | `rankgrep: not in this corpus: hookz` when some search words matched nothing |
 | 1 | No section contains any query word | `rankgrep: no matches. Not in this corpus: frobnicate, widgetry. Try other words.` |
 | 2 | The command can't run as written | `rankgrep: no such file or directory: docs/claude-cod. Pass existing files or folders.` |
 | 3 | Internal error | `rankgrep: internal error: ... Please report it at https://github.com/janozeli/rankgrep/issues; use rg meanwhile.` |
