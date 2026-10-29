@@ -1,0 +1,34 @@
+{
+  "corpus": {
+    "files": 914,
+    "bytes": 24354998,
+    "sha256": "55824d25006736e832949f9891a6b6205aead31e65e7b330ae220f1a55a3b1f4",
+    "sources": {
+      "python": {
+        "version": "3.14.0",
+        "commit": "ebf955df7a89ed0c7968f79faec1de49f61ed7cb",
+        "url": "https://codeload.github.com/python/cpython/tar.gz/ebf955df7a89ed0c7968f79faec1de49f61ed7cb",
+        "sha256": "57601e7fdcf7ce150e76e0af106768ec7491c39b246b45a1599c06d0c6f61bdc",
+        "prefix": "Doc",
+        "suffix": ".rst"
+      },
+      "postgres": {
+        "version": "18.0",
+        "commit": "3d6a828938a5fa0444275d3d2f67b64ec3199eb7",
+        "url": "https://codeload.github.com/postgres/postgres/tar.gz/3d6a828938a5fa0444275d3d2f67b64ec3199eb7",
+        "sha256": "b90e598761827cee3477a6159653914a7fbf02602767ea7122762fa59611513a",
+        "prefix": "doc/src/sgml",
+        "suffix": ".sgml"
+      }
+    }
+  },
+  "questions_sha256": "4e7fdf6a5144362e7498d42395dddf864a8577aaa7ca3aab255e556b309c530a",
+  "plugin_commit": "7983ad0122a0ae9d8a5ab3d163ab29ba1fea5b6d",
+  "protocol_version": 1,
+  "guard_sha256": "0615afc9ee65f5dbba4c8f7fe91d5fe637abaf8bab375a3a6e1d7f50c85446b1",
+  "model_requested": "sonnet",
+  "date": "2026-10-29",
+  "model": "claude-sonnet-5-5",
+  "claude_code": "2.1.312",
+  "cache_key": "6ffb92e9abede527"
+}
