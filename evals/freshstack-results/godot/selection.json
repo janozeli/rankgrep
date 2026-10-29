@@ -1,0 +1,47 @@
+{
+  "protocol": 2,
+  "sources": [
+    {
+      "topic": "godot",
+      "kind": "queries",
+      "url": "https://huggingface.co/datasets/freshstack/queries-oct-2024/resolve/023ac3a14caf9d6ebb13d01adcfb8fa05e5a9630/godot/test-00000-of-00001.parquet",
+      "sha256": "04bda2c8693969729c28e77b675837692f915f459a1848e6337a1801707f1e38",
+      "bytes": 291414
+    },
+    {
+      "topic": "godot",
+      "kind": "corpus",
+      "url": "https://huggingface.co/datasets/freshstack/corpus-oct-2024/resolve/069f66dc323e163b48b10d08408d282733d4393b/godot/train-00000-of-00001.parquet",
+      "sha256": "2e3f700c033c3f5dc6cdc4dd05c7e402baca1b7c4f9ed87a274ce73f4b6ffa41",
+      "bytes": 33422376
+    }
+  ],
+  "engine_sha256": "07a7103eea7d54b6a4d1ffa57e7a72843953f5088ecdcecd800fa561aefd23cc",
+  "bm25s": "0.3.15",
+  "numpy": "2.5.4",
+  "agent_protocol": 2,
+  "arms": [
+    "free",
+    "free+rankgrep"
+  ],
+  "selection": [
+    "76925739",
+    "77320255",
+    "77219006",
+    "78360682",
+    "77149652",
+    "78102746",
+    "76974491",
+    "77082664",
+    "78177286",
+    "77876948"
+  ],
+  "model_requested": "sonnet",
+  "plugin_commit": "31379def63c8eb4a21f0be3ecf5f1e2e52ff8a00",
+  "seed": "rankgrep-freshstack-free-1",
+  "max_turns": 24,
+  "max_budget_usd": "2",
+  "permission_mode": "bypassPermissions",
+  "tools": "default",
+  "project_venv_on_path": false
+}

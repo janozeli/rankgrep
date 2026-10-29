@@ -40,3 +40,6 @@ build-backend = "uv_build"
 
 [dependency-groups]
 dev = ["pytest>=9.2.0"]
+eval = [
+    "pyarrow==26.0.0",
+]
