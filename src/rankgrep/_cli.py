@@ -5,6 +5,7 @@ this module, and each is one stderr line that says what to do next."""
 import argparse
 import enum
 import json
+import math
 import os
 import sys
 from collections.abc import Sequence
@@ -31,6 +32,7 @@ class Args:
     paths: tuple[str, ...]
     top: int
     stats: bool
+    weighted: tuple[tuple[str, float], ...]
 
 
 def main(argv: Sequence[str] | None = None) -> int:
@@ -48,9 +50,12 @@ def _search(argv: Sequence[str] | None) -> Exit:
     args = _parse(argv)
     if isinstance(args, Exit):
         return args
-    query = Query.parse(args.query)
+    query = Query.parse(args.query, args.weighted)
     if query is None:
-        _say(f'no searchable words in "{args.query}". Use distinctive keywords such as names, identifiers or error codes.')
+        if args.weighted:
+            _say("no searchable words with positive weight. Give at least one searchable term a weight above zero.")
+        else:
+            _say(f'no searchable words in "{args.query}". Use distinctive keywords such as names, identifiers or error codes.')
         return Exit.USAGE
     corpus = select(args.paths)
     if isinstance(corpus, MissingPaths):
@@ -124,6 +129,9 @@ def _parse(argv: Sequence[str] | None) -> Args | Exit:
                         help=f"number of hits to print (default {DEFAULT_TOP})")
     output.add_argument("--stats", action="store_true",
                         help="print term, df, section_count, fraction and idf as JSONL instead of hits")
+    parser.add_argument("--weight", nargs=2, action="append", default=[], metavar=("TEXT", "FACTOR"),
+                        help="set weights for normalized terms in TEXT (adds missing terms); repeatable, last wins; "
+                        "FACTOR is 0 to 1000000, default 1, zero removes terms")
     parser.add_argument("--files-from", metavar="FILE", help='read more paths from FILE, one per line ("-" for stdin)')
     parser.add_argument("--version", action="version", version=f"rankgrep {version('rankgrep')}")
     try:
@@ -131,6 +139,22 @@ def _parse(argv: Sequence[str] | None) -> Args | Exit:
     except _UsageError as error:
         _say(f"{error}. Run rankgrep --help for usage.")
         return Exit.USAGE
+    if parsed.stats and parsed.weight:
+        _say("--stats cannot be combined with --weight. Inspect frequencies or run a weighted search separately.")
+        return Exit.USAGE
+    weighted = []
+    for text, factor in parsed.weight:
+        try:
+            weight = float(factor)
+        except ValueError:
+            weight = math.nan
+        if not math.isfinite(weight) or not 0 <= weight <= 1_000_000:
+            _say("--weight FACTOR must be a finite number between 0 and 1000000.")
+            return Exit.USAGE
+        if Query.parse(text) is None:
+            _say("--weight TEXT must contain searchable terms. Use keywords, identifiers or error codes.")
+            return Exit.USAGE
+        weighted.append((text, weight))
     paths = list(parsed.paths)
     if parsed.files_from:
         try:
@@ -142,7 +166,7 @@ def _parse(argv: Sequence[str] | None) -> Args | Exit:
     if not paths:
         _say("nothing to search. Pass folders or files after the query, or --files-from -.")
         return Exit.USAGE
-    return Args(parsed.query, tuple(paths), parsed.top, parsed.stats)
+    return Args(parsed.query, tuple(paths), parsed.top, parsed.stats, tuple(weighted))
 
 
 def _render(hit: Hit, corpus: Corpus) -> str:

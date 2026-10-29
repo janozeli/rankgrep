@@ -110,6 +110,21 @@ Counts include inherited heading words and use sections, not source files. Repea
 
 Statistics reuse the search index and accept the same paths and `--files-from` input. `--stats` and `-k` are mutually exclusive. A successful statistics request exits 0 even when every term is absent; empty queries and unusable corpora still exit 2.
 
+### Explicit query weights
+
+`--weight TEXT FACTOR` sets the BM25 contribution of every normalized term in `TEXT`. Terms in the positional query start at weight 1. Weighted text can add terms that were absent from the query:
+
+```sh
+rankgrep --weight "matcher matches" 0.5 "hook" docs/claude-code
+rankgrep --weight "PreToolUse" 3 --weight "tool use" 0.1 "hook matcher" docs/claude-code
+```
+
+The score is the sum of each active term's BM25 contribution multiplied by its weight. Weights are absolute assignments, not cumulative boosts: repeat `--weight` to set several groups, and the last assignment wins for overlapping terms. Text is tokenized exactly like the query; `PreToolUse` also assigns weights to `pre`, `tool`, and `use`. Word order does not define a phrase.
+
+Factors must be finite numbers from 0 to 1,000,000. Zero removes a term from matching, scoring, snippets and unknown-term diagnostics; it does **not** exclude documents containing that word. A query with no remaining searchable terms exits 2. Missing positive-weight terms are reported as usual. There is no automatic synonym expansion, filtering, or model call.
+
+Searches without `--weight`, or with all weights equal to 1, retain the original ranking and output. Weighted searches keep the same JSONL fields, line ranges, tie ordering, path selection and cached index. Scores remain comparable only within one search. `--stats` cannot be combined with `--weight` because statistics describe the corpus independently of query weights.
+
 ## Exit codes
 
 | Code | Meaning | Example stderr |

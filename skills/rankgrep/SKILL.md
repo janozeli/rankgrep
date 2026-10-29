@@ -1,6 +1,6 @@
 ---
 name: rankgrep
-description: Find where a topic is covered in a large body of local text, such as documentation folders, llms-full.txt files, or long plain-text books. Ranks sections against keywords with BM25 and returns exact line ranges to read. Use when you need to look something up in long text and don't know the exact wording. Use rg instead when you already know the exact string.
+description: Find where a topic is covered in a large body of local text, such as documentation folders, llms-full.txt files, or long plain-text books. Ranks sections against keywords with BM25 and returns exact line ranges to read. Supports optional corpus term statistics and explicit query weights. Use when you need to look something up in long text and don't know the exact wording. Use rg instead when you already know the exact string.
 allowed-tools: Bash(${CLAUDE_PLUGIN_ROOT}/bin/rankgrep *)
 ---
 
@@ -40,6 +40,14 @@ It prints one JSON line per normalized term: `term`, `df` (sections containing i
 when absent). Counts include inherited heading words. It returns no passages,
 reuses the search index, and does not accept `-k`. Rarity is not relevance;
 statistics do not automatically filter terms or change the query.
+
+`--weight TEXT FACTOR` optionally sets the contribution of each normalized term in
+TEXT, adding terms missing from the query:
+`${CLAUDE_PLUGIN_ROOT}/bin/rankgrep --weight "matcher matches" 0.5 "hook" docs/claude-code`
+Query terms start at weight 1. Repeated options use the last weight for each
+term, including identifier parts. Factors are finite numbers from 0 to 1,000,000;
+zero removes a term from the query, not documents containing it. All-zero queries
+exit 2. Search output is unchanged; `--weight` cannot be combined with `--stats`.
 
 - Name the folders or files after the query. Several doc sets can go in one search, and each hit's path shows which set it came from:
   `${CLAUDE_PLUGIN_ROOT}/bin/rankgrep "retry backoff 429" docs/claude-code docs/library`
