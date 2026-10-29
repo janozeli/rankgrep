@@ -135,6 +135,8 @@ A separate [isolated Codex replication](evals/CODEX.md) repeats the same questio
 
 [Short description experiments](evals/adoption-results/summary.md) then compare the original catalog description with three factual alternatives on six new paired questions. They change only the description, preserve the skill body and free tool choice, and report successful usage alongside evidence quality. The small sample is exploratory; the production description remains unchanged.
 
+A follow-up [Claude Code documentation test](evals/CLAUDE_DOCS.md) uses the complete official Markdown export: 228 pages and about 10 MB. Eight questions run across five free-agent conditions. A description naming Claude Code topics has the highest observed tool adoption, but after auditing equivalent citation passages, every condition—including the agent without rankgrep—supports all required evidence. This small test does not demonstrate a retrieval advantage.
+
 ## Earlier isolated-tool experiments
 
 An agent whose only search tool was rankgrep answered 48 of 50 lookup questions correctly, and for 48 of them it cited lines that state the answer. The same agent with no tools answered 15. With only `rg` it answered 49, for less money and in less time. One lexical search tool was enough on these two texts. These questions don't show rankgrep finding more than `rg`.

@@ -1,0 +1,50 @@
+{
+  "corpus_sha256": "36ea0e77345140335ce633e99ca521d5c0cb3d8668d088b6ea1331952e36014d",
+  "questions_sha256": "6077a40faa9ebef3386d7f84da4007c83265d1d66e2332034980a12c087c40eb",
+  "model": "gpt-6-astra",
+  "effort": "medium",
+  "service_tier_requested": "priority",
+  "config": "model = \"gpt-6-astra\"\nmodel_reasoning_effort = \"medium\"\nservice_tier = \"priority\"\nproject_doc_max_bytes = 0\n[plugins._default]\nenabled = false\n[skills.bundled]\nenabled = false\n[cloud.skills]\nenabled = false\n[features]\napps = false\nremote_plugin = false\nrecommended_plugins = false\nenable_mcp_apps = false\nmemories = false\n[memories]\ngenerate_memories = false\nuse_memories = false\n",
+  "seed": "claude-docs-adoption-v1",
+  "arms": [
+    "free",
+    "original",
+    "capabilities",
+    "domain",
+    "output"
+  ],
+  "descriptions": {
+    "original": null,
+    "capabilities": "Local documentation search across many files. BM25 ranks sections by keyword relevance and returns source paths, exact line ranges, and matching snippets. Supports unfamiliar wording and queries spanning several concepts; exact-string search remains available through rg.",
+    "domain": "Search local Claude Code documentation for CLI flags, settings.json, hooks, permissions, plugins, skills, subagents, MCP, and session behavior. BM25 keyword ranking returns source paths, line ranges, snippets, and matched terms as JSONL.",
+    "output": "Ranked evidence lookup in local documentation and source text. Each JSONL result contains path, start, end, score, a matching snippet, and matched query terms. Keyword retrieval with BM25, automatic cached indexing, and no model calls or embeddings."
+  },
+  "plugin_commit": "31379def63c8eb4a21f0be3ecf5f1e2e52ff8a00",
+  "skill_sha256": {
+    "original": "413d961eb216537077aec36b36ffbc834e10b4b0ada4fa813b8e3f99eab222e4",
+    "capabilities": "bcc5ec5cda192820028a8b7f6a779e51375c15ee03946c746c1221bd329a94f8",
+    "domain": "1a710994e3690f3c09b485cad198e710b33facbcd54c8867ce7661c9762dfda9",
+    "output": "193b4ed1d8eb40ef547f4353d74bc6ff39b872115c076bb127284defdd1dfd28"
+  },
+  "prompt_sha256": {
+    "direct-1": "ce28015f26b2299a6c6d6f8781711715c8a501cb41e8b77eb6790e87468b874f",
+    "direct-2": "bae30cd9707597d9169d330ff88751dde72e13dc9b8b23ba98c1c18468d7b035",
+    "vague-1": "f67755d466f02c87d2e283fb0eb564c36e98495348503cd311ac67b1e4224823",
+    "vague-2": "3c2f3155387f6f9eff58a59fc136d34f94947d02d8b46bcb7a63fc64e5443f31",
+    "constraints-1": "c0d47e013422258c38b4c70046d2c4349c855e7b036e4d206d0da480e285920e",
+    "constraints-2": "aed112ffb0f3a3027408efe9604986baac20f8b1d211c47aaf35eea3cdf9a488",
+    "synthesis-1": "25b5243efbd6db86eee6650a31e8a8029fda55ab69d40bec086f3a85393288c3",
+    "synthesis-2": "f28b126922e4152d11bcaa5332608f5a35b90e37e1721cfc38e2982000c74f95"
+  },
+  "runner_sha256": {
+    "claude_docs.py": "8c093d433077d224d59d369cedfe9ff6ec2b4f0d9ebac6e7d25fe32e5682dad4",
+    "codex_isolation.py": "0a400645149314ba175458f4dcd30e5ed9424bbb083017f8efb46589af1a9684",
+    "codex_audit.py": "a053a54946fa999eb93e124423c7d2e5f65d897ec91ef8e35cec770e2da5c699",
+    "codex_freshstack.py": "7b1f089d9029edda847480fe1e24bfd79759bc01ed92573bc995e31ce65468b2",
+    "codex_adoption.py": "a737c53f10c090a847f4d41036d5cb3b130f651e28d13dfe2697dee424497106"
+  },
+  "codex": "codex-cli 0.165.0",
+  "cache_policy": "Private session copies of an independently warmed corpus cache; native launcher warmed before timing.",
+  "timeout_seconds": 1200,
+  "budget_note": "No max-turns or dollar cap; priority is requested, not backend-verified."
+}

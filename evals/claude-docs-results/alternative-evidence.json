@@ -1,0 +1,56 @@
+{
+  "method": "Post-hoc author audit of every missed reference group, using cited passages from all five conditions. Not blinded. Additions applied uniformly; original labels and metrics unchanged. Generated answer accuracy is not assessed.",
+  "manifest_sha256": "b57d0b86ec87b3201816d8d9dfbd58cf2514207be54138abdab0f82235ba7685",
+  "runs_sha256": "e43c5f259030e5629662a922eec9dc50c35a7db1113e150abf1e30b9ed20356d",
+  "additions": [
+    {
+      "id": "direct-2",
+      "group": 1,
+      "alternatives": [
+        {
+          "start": 32066,
+          "end": 32066,
+          "rationale": "The hooks guide explicitly says allow still leaves deny and ask permission rules in effect."
+        }
+      ]
+    },
+    {
+      "id": "vague-2",
+      "group": 0,
+      "alternatives": [
+        {
+          "start": 38733,
+          "end": 38733,
+          "rationale": "The plugin development page repeats the same warning as the original reference."
+        },
+        {
+          "start": 86650,
+          "end": 86650,
+          "rationale": "Troubleshooting explicitly places skills and commands at the root and states that components under the manifest directory are not scanned."
+        }
+      ]
+    },
+    {
+      "id": "vague-2",
+      "group": 1,
+      "alternatives": [
+        {
+          "start": 86621,
+          "end": 86621,
+          "rationale": "Troubleshooting defines plugin-dir as the actual plugin root and explains why a marketplace root misses nested plugins."
+        }
+      ]
+    },
+    {
+      "id": "synthesis-1",
+      "group": 1,
+      "alternatives": [
+        {
+          "start": 83660,
+          "end": 83664,
+          "rationale": "The manifest reference defines the installation-root variable and explains that its value changes on upgrades, so state should not be stored there."
+        }
+      ]
+    }
+  ]
+}
